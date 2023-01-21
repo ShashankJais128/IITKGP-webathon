@@ -34,6 +34,7 @@ function Signup() {
   useEffect(() => {
     console.log(showUser);
   }, [showUser]);
+
   return (
     <div className=" pt-24 px-24">
       <div className="flex flex-row justify-center px-8">
