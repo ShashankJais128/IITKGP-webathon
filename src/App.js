@@ -5,6 +5,10 @@ import MyEvents from "./components/myEvents/MyEvents";
 import ExploreEvents from "./components/exploreEvents/ExploreEvents";
 import Signup from "./components/signup/Signup";
 import Login from "./components/login/Login";
+import axios from "axios";
+
+// axios Base Url
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
 function App() {
   return (
