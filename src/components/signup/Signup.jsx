@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import TagsInput from "./TagsInput";
 
 function Signup() {
+  const selectedTags = (tags) => {
+    console.log(tags);
+  };
+
   const [showUser, setUser] = useState({
     Name: "",
     Email: "",
@@ -60,8 +65,9 @@ function Signup() {
                   onChange={DataInp}
                 />
               </div>
+
               {/* Skill */}
-              <div className="mb-5">
+              {/* <div className="mb-5">
                 <input
                   type="text"
                   name="Skill"
@@ -72,7 +78,12 @@ function Signup() {
                   onChange={DataInp}
                 />
                 <p>{showUser.Skill}</p>
-              </div>
+              </div> */}
+
+              <TagsInput
+                selectedTags={selectedTags}
+                tags={["Nodejs", "MongoDB"]}
+              />
               {/* portfolio */}
               <div className="mb-5">
                 <input

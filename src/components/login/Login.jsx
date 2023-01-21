@@ -62,7 +62,7 @@ function Login() {
             </form>
             <p className="text-center mt-5">
               Don't have an account?
-              <Link to="/login">
+              <Link to="/signup">
                 <span className="text-blue-500">Sign up</span>
               </Link>
             </p>
