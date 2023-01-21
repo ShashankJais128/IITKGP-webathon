@@ -33,7 +33,7 @@ function Homemain() {
               <div className="hidden xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-lg">
                 <a
                   href="#explore"
-                  className="py-1 px-3 hover:text-black rounded text-white transition duration-300"
+                  className="py-1 px-3 hover:text-[#f2673f] rounded text-white transition duration-300"
                 >
                   Browse Squad
                 </a>
@@ -41,7 +41,7 @@ function Homemain() {
               <div className="hidden xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-lg">
                 <Link
                   to="/myevents"
-                  className="py-1 px-3 hover:text-black rounded text-white transition duration-300"
+                  className="py-1 px-3 hover:text-[#f2673f] rounded text-white transition duration-300"
                 >
                   Create Squad
                 </Link>

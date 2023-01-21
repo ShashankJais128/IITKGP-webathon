@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ExploreEventsCard(props) {
   return (
@@ -23,9 +24,11 @@ function ExploreEventsCard(props) {
         </div>
       </div>
       <br />
-      <button className="bg-[#ff673a] text-white text-3xl font-semibold w-[90%]">
-        VIEW
-      </button>
+      <Link to="/detailview" className="w-full px-10">
+        <button className="bg-[#ff673a] text-white text-3xl font-semibold w-full">
+          VIEW
+        </button>
+      </Link>
     </div>
   );
 }

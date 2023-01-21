@@ -1,8 +1,7 @@
 import React from "react";
 import ExploreEventsCard from "./ExploreEventsCard";
 import eveImg from "../../public/aboutimg.png";
-import bgex from "../../public/bgex.png";
-import bgex1 from "../../public/bgex1.png";
+import bgex from "../../public/bgn.jpg";
 
 const exploreEvents = [
   {
@@ -56,17 +55,14 @@ function ExploreEvents() {
     <>
       <div
         id="explore"
-        className="bg-black bg-cover bg-bottom bg-fixed pb-8 relative"
+        className="bg-black bg-cover bg-bottom  pb-8"
         style={{
-          backgroundImage: ` url(${bgex})`,
+          backgroundImage: `url(${bgex})`,
         }}
       >
-        <div className="z-10 absolute">
-          <img src={bgex1} alt="" className=" w-full h-full" />
-        </div>
-        <div className="mx-[5%] z-20 ">
+        <div className="mx-[5%]">
           <h1 className="text-6xl text-center font-semibold pt-16 text-white">
-            BROWSE EVENTS
+            BROWSE SQUADS
           </h1>
           <br />
           <br />

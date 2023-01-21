@@ -7,6 +7,7 @@ import Signup from "./components/signup/Signup";
 import Login from "./components/login/Login";
 import Homemain from "./components/home/Homemain";
 import axios from "axios";
+import DetailView from "./components/exploreEvents/DetailView";
 axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/myevents" element={<MyEvents />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/detailview" element={<DetailView />} />
         </Routes>
         <Footer />
       </Router>

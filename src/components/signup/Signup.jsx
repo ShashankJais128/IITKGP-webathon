@@ -4,6 +4,8 @@ import AuthContext from "../../store/auth-context";
 import TagsInput from "./TagsInput";
 import axios from "axios";
 import { async } from "q";
+import bg from "../../public/bgn.jpg";
+import Navbar from "../header/Navbar";
 
 function Signup() {
   const [show, set] = useState("");
@@ -125,11 +127,19 @@ function Signup() {
     console.log(showUser);
   }, [showUser]);
   return (
-    <div className=" pt-24 px-24">
-      <div className="flex flex-row justify-center px-8">
-        <div className="bg-gray-100 w-[500px] p-4 rounded-md">
+    <div
+      className="bg-black bg-cover bg-bottom bg-fixed pb-8"
+      style={{
+        backgroundImage: ` url(${bg})`,
+      }}
+    >
+      <Navbar />
+      <div className="flex flex-row justify-center pt-20 px-8">
+        <div className="bg-[#28282B] w-[500px] p-4 rounded-md">
           <div className="">
-            <p className="font-semibold text-center text-3xl">Sign Up</p>
+            <p className="font-semibold text-center text-3xl text-white">
+              Sign Up
+            </p>
             <br />
           </div>
           <div className="">
@@ -139,7 +149,7 @@ function Signup() {
                 type="email"
                 name="Name"
                 id="Name"
-                className="w-[95%] rounded-md p-3"
+                className="w-full rounded-md p-3"
                 placeholder="Enter your name"
                 onChange={DataInp}
               />
@@ -150,7 +160,7 @@ function Signup() {
                 type="email"
                 name="Email"
                 id="Email"
-                className="w-[95%] rounded-md p-3"
+                className="w-full rounded-md p-3"
                 placeholder="Enter your email"
                 onChange={DataInp}
               />
@@ -161,7 +171,7 @@ function Signup() {
                 type="text"
                 name="College"
                 id="College"
-                className="w-[95%] rounded-md p-3"
+                className="w-full rounded-md p-3"
                 placeholder="Enter your college name"
                 onChange={DataInp}
               />
@@ -174,7 +184,7 @@ function Signup() {
                 type="text"
                 name="Portfolio"
                 id="Portfolio"
-                className="w-[95%] rounded-md p-3"
+                className="w-full rounded-md p-3"
                 placeholder="Enter your portfolio"
                 onChange={DataInp}
               />
@@ -185,7 +195,7 @@ function Signup() {
                 type="text"
                 name="Linkedin"
                 id="Linkedin"
-                className="w-[95%] rounded-md p-3"
+                className="w-full rounded-md p-3"
                 placeholder="Enter your linkedin id"
                 onChange={DataInp}
               />
@@ -196,7 +206,7 @@ function Signup() {
                 type="password"
                 name="Password"
                 id="Password"
-                className="w-[95%] rounded-md p-3"
+                className="w-full rounded-md p-3"
                 placeholder="Password"
                 onChange={DataInp}
               />
@@ -208,19 +218,19 @@ function Signup() {
                 type="password"
                 name="CPassword"
                 id="CPassword"
-                className="w-[95%] rounded-md p-3"
+                className="w-full rounded-md p-3"
                 placeholder="ConfirmPassword"
                 onChange={DataInp}
               />
             </div>
             <button
               type="button"
-              className="w-[95%] mt-5 bg-blue-500 text-white rounded-md py-3 font-bold text-xl"
+              className="w-full mt-5 bg-[#ff673a] text-white rounded-md py-3 font-bold text-xl"
               onClick={submit}
             >
               Sign Up
             </button>
-            <p className="text-center mt-5">
+            <p className="text-center mt-5 text-white">
               Already have an account?
               <Link to="/login">
                 <span className="text-blue-500">Login</span>
