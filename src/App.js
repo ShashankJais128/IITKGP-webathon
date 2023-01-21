@@ -5,6 +5,8 @@ import MyEvents from "./components/myEvents/MyEvents";
 import ExploreEvents from "./components/exploreEvents/ExploreEvents";
 import Signup from "./components/signup/Signup";
 import Login from "./components/login/Login";
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
   return (
