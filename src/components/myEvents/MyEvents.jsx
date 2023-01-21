@@ -4,7 +4,7 @@ import MyEventsList from "./MyEventsList";
 
 function MyEvents() {
   return (
-    <div className="pt-24">
+    <div className="pt-24" id="myEvents">
       <CreateEvent />
       <MyEventsList />
     </div>

@@ -5,15 +5,17 @@ import MyEvents from "./components/myEvents/MyEvents";
 import ExploreEvents from "./components/exploreEvents/ExploreEvents";
 import Signup from "./components/signup/Signup";
 import Login from "./components/login/Login";
+import Homemain from "./components/home/Homemain";
 
 function App() {
   return (
     <div>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
+
         <Routes>
-          <Route path="/" element={<MyEvents />} />
-          <Route path="/explore" element={<ExploreEvents />} />
+          <Route path="/" element={<Homemain />} />
+          <Route path="/myevents" element={<MyEvents />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
         </Routes>
