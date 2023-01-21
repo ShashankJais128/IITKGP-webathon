@@ -13,7 +13,7 @@ function TagsInput(props) {
     }
   };
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mb-5">
       <input
         type="text"
         onKeyUp={(event) => (event.key === "Enter" ? addTags(event) : null)}
@@ -23,12 +23,12 @@ function TagsInput(props) {
         {tags.map((tag, index) => (
           <li key={index} className="tag bg-blue-500 p-1 rounded-md">
             <span className="text-white">{tag} </span>
-            <span
-              className="bg-white rounded-full w-4 h-4"
+            <buttun
+              className="bg-white cursor-pointer rounded-full w-4 h-4"
               onClick={() => removeTags(index)}
             >
               x
-            </span>
+            </buttun>
           </li>
         ))}
       </ul>

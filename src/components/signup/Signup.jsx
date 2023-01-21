@@ -4,20 +4,23 @@ import TagsInput from "./TagsInput";
 
 function Signup() {
   const selectedTags = (tags) => {
+    setUser({ Skill: tags });
     console.log(tags);
   };
 
   const [showUser, setUser] = useState({
     Name: "",
     Email: "",
-    Skill: "",
+    Skill: [],
     Portfolio: "",
     Password: "",
     Cpassword: "",
+    College: "",
   });
 
   const submit = async (e) => {
     e.preventDefault();
+    setUser.Skill = selectedTags;
     console.log(showUser);
   };
 
@@ -65,6 +68,18 @@ function Signup() {
                   onChange={DataInp}
                 />
               </div>
+              {/* college */}
+              <div className="mb-5">
+                <input
+                  type="text"
+                  name="College"
+                  id="College"
+                  className="w-[95%] rounded-md p-3"
+                  placeholder="Enter your college name"
+                  value={showUser.college}
+                  onChange={DataInp}
+                />
+              </div>
 
               {/* Skill */}
               {/* <div className="mb-5">
@@ -80,10 +95,7 @@ function Signup() {
                 <p>{showUser.Skill}</p>
               </div> */}
 
-              <TagsInput
-                selectedTags={selectedTags}
-                tags={["Nodejs", "MongoDB"]}
-              />
+              <TagsInput selectedTags={selectedTags} tags={[]} />
               {/* portfolio */}
               <div className="mb-5">
                 <input
