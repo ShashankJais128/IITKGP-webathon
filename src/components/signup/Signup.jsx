@@ -16,6 +16,7 @@ function Signup() {
     Password: "",
     Cpassword: "",
     College: "",
+    Linkedin: "",
   });
 
   const submit = async (e) => {
@@ -37,7 +38,7 @@ function Signup() {
   return (
     <div className=" pt-24 px-24">
       <div className="flex flex-row justify-center px-8">
-        <div className="bg-gray-100 w-[500px] h-[500px] p-4 rounded-md">
+        <div className="bg-gray-100 w-[500px] p-4 rounded-md">
           <div className="">
             <p className="font-semibold text-center text-3xl">Sign Up</p>
             <br />
@@ -105,6 +106,18 @@ function Signup() {
                   className="w-[95%] rounded-md p-3"
                   placeholder="Enter your portfolio"
                   value={showUser.portfolio}
+                  onChange={DataInp}
+                />
+              </div>
+              {/* linkedin */}
+              <div className="mb-5">
+                <input
+                  type="text"
+                  name="Linkedin"
+                  id="Linkedin"
+                  className="w-[95%] rounded-md p-3"
+                  placeholder="Enter your linkedin id"
+                  value={showUser.linkedin}
                   onChange={DataInp}
                 />
               </div>
