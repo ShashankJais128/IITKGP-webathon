@@ -179,7 +179,7 @@ function EditEvent() {
                       onChange={onChange}
                     />
                   </div>
-                  <div className="md:py-2 col-span-2 px-4">
+                  <div className="md:py-2 md:col-span-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Image</h2>
                     <div className="flex space-x-4">
                       <input
@@ -197,7 +197,7 @@ function EditEvent() {
                       />
                     </div>
                   </div>
-                  <div className="md:py-2 px-4 col-span-2">
+                  <div className="md:py-2 px-4 md:col-span-2">
                     <h2 className="md:text-xl p-1 my-1 text-white">
                       Description
                     </h2>

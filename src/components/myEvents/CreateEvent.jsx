@@ -82,7 +82,7 @@ function CreateEvent({ showModal, setShowModal }) {
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div
-              className="relative bg-cover w-[60%] my-6 mx-auto max-w-3xl"
+              className="relative bg-cover w-[90%] md:w-[60%] my-6 mx-auto max-w-3xl"
               style={{
                 backgroundImage: ` url(${bgn})`,
               }}
@@ -180,7 +180,7 @@ function CreateEvent({ showModal, setShowModal }) {
                       onChange={onChange}
                     />
                   </div>
-                  <div className="md:py-2 col-span-2 px-4">
+                  <div className="md:py-2 md:col-span-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Image</h2>
                     <div className="flex space-x-4">
                       <input
@@ -198,7 +198,7 @@ function CreateEvent({ showModal, setShowModal }) {
                       />
                     </div>
                   </div>
-                  <div className="md:py-2 px-4 col-span-2">
+                  <div className="md:py-2 px-4 md:col-span-2">
                     <h2 className="md:text-xl p-1 my-1 text-white">
                       Description
                     </h2>
