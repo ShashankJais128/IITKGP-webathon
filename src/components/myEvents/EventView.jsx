@@ -6,9 +6,11 @@ import cal from "../../public/calendar.png";
 import loc from "../../public/location.png";
 import time from "../../public/time.png";
 import rect from "../../public/Rect.png";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function EventView() {
+  let { id } = useParams();
   return (
     <div className="w-[75%] mx-[5%] mt-16">
       <img src={rect} alt="" />
@@ -88,7 +90,7 @@ function EventView() {
           <br />
           <div className="flex justify-center">
             <br />
-            <Link to="/myevents/applicants">
+            <Link to={`/dashboard/applicants/${id}`}>
               <button className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1">
                 Applicants
               </button>

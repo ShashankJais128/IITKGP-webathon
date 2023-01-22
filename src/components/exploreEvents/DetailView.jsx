@@ -7,14 +7,22 @@ import linkd from "../../public/linkedin.png";
 import cal from "../../public/calendar.png";
 import loc from "../../public/location.png";
 import time from "../../public/time.png";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate,useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState,useContext } from "react";
 import AuthContext from "../../store/auth-context";
 
 function DetailView() {
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
+const query = useQuery();
+const open = query.get("open")
   const [Event, setEvent] = useState([]);
+  const [applied, setApplied] = useState({});
+  const [apploading,setApploading]=useState(true)
+  const redirect = useNavigate();
   const authCtx = useContext(AuthContext);
   const msgref = useRef();
   const [showModal, setShowModal] = React.useState(false);
@@ -31,7 +39,26 @@ function DetailView() {
       console.log(e);
     }
   }
+  async function checkstatus(){
+    try {
+      const resp = await axios.post("api/request/Status/", {competitionID:id}, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+      const data=resp.data
+      console.log(data)
+      if(data.status==true){
+      setApplied(data)
+      setApploading(false)
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
   useEffect(() => {
+   
+    if(authCtx.isLoggedIn){
+      checkstatus()
+    }
     getCompetion();
   }, [id]);
   async function applySquad() {
@@ -129,7 +156,8 @@ function DetailView() {
               <br />
               <button
                 className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
-                onClick={() => setShowModal(true)}
+                onClick={authCtx.isLoggedIn?() => setShowModal(true):()=>{authCtx.settarget(`detailview/${id}?open=true`);redirect('/login')}}
+              
               >
                 Apply Now
               </button>
@@ -139,7 +167,7 @@ function DetailView() {
       )}
 
       {/* modal */}
-      {showModal ? (
+      {showModal ||(open=="true" && authCtx.isLoggedIn) ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-[50%] my-6 mx-auto max-w-3xl">
@@ -180,7 +208,8 @@ function DetailView() {
                     </h1>
                   </div>
                   <br />
-                  <h1 className="text-white text-xl mb-2">Message</h1>
+                  {applied && <center><div className="text-white text-xl mb-2">Status : {!apploading?applied.requestData.status:""}</div></center>}
+                  {!applied && <><h1 className="text-white text-xl mb-2">Message</h1>
                   <textarea
                     className="w-full bg-[#28282B] text-white p-2"
                     name=""
@@ -189,14 +218,14 @@ function DetailView() {
                     rows="5"
                     ref={msgref}
                     placeholder="write your message here..."
-                  ></textarea>
+                  ></textarea></>}
                 </div>
                 {/*footer*/}
-                <div className="flex justify-center items-center p-6 border-t border-solid border-slate-200 rounded-b">
+               { !applied && <div className="flex justify-center items-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <button onClick={applySquad} className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1">
                     Apply
                   </button>
-                </div>
+                </div>}
               </div>
             </div>
           </div>

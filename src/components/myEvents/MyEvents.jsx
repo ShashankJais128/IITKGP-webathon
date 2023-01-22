@@ -22,9 +22,10 @@ function MyEvents() {
       <div className="flex">
         <Sidebar />
         <Routes>
+          <Route path="/" element={<MyEventsList />} />
           <Route path="/myeventlist" element={<MyEventsList />} />
-          <Route path="/eventview" element={<EventView />} />
-          <Route path="/applicants" element={<Applicants />} />
+          <Route path="/eventview/:id" element={<EventView />} />
+          <Route path="/applicants/:id" element={<Applicants />} />
           <Route path="/appsquad" element={<AppliedSquads />} />
         </Routes>
         {/* <MyEventsList /> */}

@@ -5,9 +5,12 @@ import make from "../../public/make.png";
 import { Link } from "react-router-dom";
 import Navbar from "../header/Navbar";
 import MyEvents from "../myEvents/MyEvents";
+import { useContext } from "react";
 import ExploreEvents from "../exploreEvents/ExploreEvents";
+import AuthContext from "../../store/auth-context";
 
 function Homemain() {
+  const authCtx = useContext(AuthContext);
   return (
     <>
       <div
@@ -39,8 +42,10 @@ function Homemain() {
                 </a>
               </div>
               <div className="hidden xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-lg">
+         
                 <Link
-                  to="/myevents"
+                  to={ authCtx.isLoggedIn? "/dashboard":"/login"}
+                  onClick={authCtx.settarget("dashboard")}
                   className="py-1 px-3 hover:text-[#f2673f] rounded text-white transition duration-300"
                 >
                   Create Squad

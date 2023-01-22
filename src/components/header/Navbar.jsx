@@ -7,7 +7,7 @@ import squad from "../../public/squad.png";
 
 function Navbar() {
   const authCtx = useContext(AuthContext);
-
+  console.log(authCtx.isLoggedIn)
   return (
     <div className="flex w-full justify-between items-center pt-10 px-16 ">
       <div className="w-40">

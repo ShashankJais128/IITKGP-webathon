@@ -8,84 +8,8 @@ import Navbar from "../header/Navbar";
 function Login() {
   const [showUser, setUser] = useState({ Email: "", Password: "" });
   const [show, set] = useState("");
-
   const authCtx = useContext(AuthContext);
-
   const redirect = useNavigate();
-
-  const glogin = async (email) => {
-    const userObject = {
-      email: email,
-    };
-
-    try {
-      const resp = await axios.post("/api/login/glogin", userObject, {
-        headers: { Authorization: `` },
-      });
-
-      if (resp.data.success == true) {
-        const info = resp.data.user;
-        await authCtx.login(
-          info.name,
-          info.email,
-          info.pic,
-          resp.data.token,
-          10800000
-        );
-        localStorage.removeItem("newUserName");
-        localStorage.removeItem("newUserEmail");
-        localStorage.removeItem("newUserPicture");
-        if (authCtx.target == null) {
-          redirect("/admin/");
-        } else {
-          redirect(`/${authCtx.target}`);
-          authCtx.settarget("");
-        }
-      }
-      if (resp.status === 200) {
-        if (authCtx.target == null) {
-          redirect("/");
-        } else {
-          redirect(`/${authCtx.target}`);
-          authCtx.settarget(null);
-        }
-      } else if (resp.status === 206) {
-        redirect("/AddDataUser");
-      }
-    } catch (err) {
-      console.error(err);
-
-      set("Invalid Credentials");
-    }
-  };
-
-  const handleCallbackResponse = (res) => {
-    const userobject = jwtDecode(res.credential);
-
-    let newUser = {
-      name: userobject.name,
-      emailMain: userobject.email,
-      picture: userobject.picture,
-    };
-
-    localStorage.setItem("newUserName", JSON.stringify(userobject.name));
-    localStorage.setItem("newUserEmail", JSON.stringify(userobject.email));
-    localStorage.setItem("newUserPicture", JSON.stringify(userobject.picture));
-
-    glogin(userobject.email);
-  };
-
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id: "knksxnxnkswdnwkdnwkdnwkdnwkdwk",
-      callback: handleCallbackResponse,
-    });
-    google.accounts.id.renderButton(document.getElementById("SignInDiv"), {
-      theme: "outline",
-      size: "large",
-    });
-  }, []);
-
   const DataInp = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -140,8 +64,9 @@ function Login() {
             10800000
           );
           if (authCtx.target == null) {
-            redirect("/dashboard");
+            redirect("/");
           } else {
+            console.log(`/${authCtx.target}`)
             redirect(`/${authCtx.target}`);
             authCtx.settarget(null);
           }
@@ -207,8 +132,6 @@ function Login() {
             >
               Login
             </button>
-
-            <div className="w-[95%] mt-5 rounded-md py-3" id="SignInDiv"></div>
             <br />
             <p className="text-center mt-5 text-white">
               Don't have an account?

@@ -1,39 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import img from "../../public/Rect.png";
 import peop from "../../public/posted_by.png";
+import { useState,useContext } from "react";
+import AuthContext from "../../store/auth-context";
+import axios from "axios";
 import linkd from "../../public/linkedin.png";
 
-const appSquad = [
-  {
-    title: "ALPINE TURBINE SQUADS",
-    image: img,
-    status: "Rejected",
-    postby: "Rishav Singh",
-  },
-  {
-    title: "ALPINE TURBINE SQUADS",
-    image: img,
-    status: "Applied",
-    postby: "Shashank",
-  },
-  {
-    title: "ALPINE TURBINE SQUADS",
-    image: img,
-    status: "Accepted",
-    postby: "Aditya",
-  },
-];
-
 function AppliedSquads() {
+  const [loading, setLoading] = useState(true);
+  const [allrequest,setAllrequest]=useState([])
+  const authCtx = useContext(AuthContext);
+  async function getsquads(){
+    try {
+      const resp = await axios.post("api/dashborads/Get", {email:authCtx.user.email}, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+      const data=resp.data
+      console.log(data)
+      if(resp.status==202){
+        setAllrequest(data)
+        setLoading(false)
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+  }  
+  useEffect(()=>{
+   getsquads()
+  },[])
   return (
     <div className="w-[75%] mx-[5%] mt-20">
       <h1 className="text-white text-4xl font-semibold mb-5">Applied Squads</h1>
       <div className="flex flex-col w-full space-y-4">
-        {appSquad.map((data) => {
+        {loading?<div></div>:<>
+        {allrequest?<> {allrequest.map((data) => {
+          console.log(allrequest)
           return (
             <div className="bg-[#28282B] flex w-full p-4">
               <div className="">
-                <img src={data.image} alt="" className="w-[180px] h-[180px]" />
+                <img src={data.competitionID.image} alt="" className="w-[180px] h-[180px]" />
               </div>
               <div className="px-6 w-full flex flex-col justify-between">
                 <div>
@@ -58,7 +64,11 @@ function AppliedSquads() {
               </div>
             </div>
           );
-        })}
+        })}</>:""}
+       
+        
+        </>}
+      
       </div>
     </div>
   );
