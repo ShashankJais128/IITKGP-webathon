@@ -24,7 +24,7 @@ function ExploreEventsCard(props) {
         </div>
       </div>
       <br />
-      <Link to="/detailview" className="w-full px-10">
+      <Link to={`/detailview/${props.id}`} className="w-full px-10">
         <button className="bg-[#ff673a] text-white text-3xl font-semibold w-full">
           VIEW
         </button>

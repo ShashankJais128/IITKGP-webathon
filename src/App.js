@@ -21,7 +21,7 @@ function App() {
           <Route path="/myevents" element={<MyEvents />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/detailview" element={<DetailView />} />
+          <Route path="/detailview/:id" element={<DetailView />} />
         </Routes>
         <Footer />
       </Router>

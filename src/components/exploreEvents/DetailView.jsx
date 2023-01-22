@@ -7,10 +7,29 @@ import linkd from "../../public/linkedin.png";
 import cal from "../../public/calendar.png";
 import loc from "../../public/location.png";
 import time from "../../public/time.png";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function DetailView() {
+  const [Event, setEvent] = useState([]);
   const [showModal, setShowModal] = React.useState(false);
+  let { id } = useParams();
+  const [loading, setLoading] = useState(true);
+  async function getCompetion() {
+    try {
+      const resp = await axios.get("/api/competition/AllCompetition/");
+      const data = resp.data;
+      setLoading(false);
+      setEvent(data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    getCompetion();
+  }, [id]);
   return (
     <>
       <div
