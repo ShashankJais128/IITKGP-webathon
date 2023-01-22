@@ -1,32 +1,35 @@
 import React, { useState } from "react";
 import eveImg from "../../public/aboutimg.png";
+import bgn from "../../public/bgn.jpg";
 import { myEvents } from "./EventData";
 
-function CreateEvent() {
-  const [showModal, setShowModal] = useState({ show: false });
+function CreateEvent({ showModal, setShowModal }) {
   const [events, setEvents] = useState(myEvents);
   const [eve, setEve] = useState({
     title: "",
-    subtitle: "",
     venue: "",
     description: "",
     date: "",
     teamSize: "",
     image: "",
+    time: "",
+    vacancy: "",
   });
 
   const [show, set] = useState("");
   const handleClick = (e) => {
     e.preventDefault();
-    const { title, subtitle, venue, description, date, teamSize, image } = eve;
+    const { title, venue, description, date, teamSize, image, time, vacancy } =
+      eve;
     if (
       title !== "" &&
-      subtitle !== "" &&
       venue !== "" &&
       description !== "" &&
       date !== "" &&
       teamSize !== "" &&
-      image !== ""
+      image !== "" &&
+      vacancy !== "" &&
+      time !== ""
     ) {
       setEvents(events.concat(eve));
       console.log(events);
@@ -39,6 +42,8 @@ function CreateEvent() {
         date: "",
         teamSize: "",
         image: "",
+        time: "",
+        vacancy: "",
       });
     } else {
       set("Please fill all the fields");
@@ -57,12 +62,13 @@ function CreateEvent() {
   const closeModal = () => {
     setEve({
       title: "",
-      subtitle: "",
       venue: "",
       description: "",
       date: "",
       teamSize: "",
       image: "",
+      time: "",
+      vacancy: "",
     });
     setShowModal({ show: false });
   };
@@ -70,33 +76,30 @@ function CreateEvent() {
   return (
     <div>
       {/* create event */}
-      <div className="bg-gray-500 h-[200px] rounded-lg p-5 mx-[5%] mb-5 flex justify-center items-center">
-        <p className="text-4xl font-semibold text-center">
-          Create a new Event <br />
-          <button onClick={() => createEve()}>+</button>
-        </p>
-
-        <br />
-      </div>
 
       {/* modal */}
       {showModal.show ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            <div
+              className="relative bg-cover w-[60%] my-6 mx-auto max-w-3xl"
+              style={{
+                backgroundImage: ` url(${bgn})`,
+              }}
+            >
               {/*content*/}
-              <div className="bg-[#111111] h-[500px] overflow-auto border-2 border-yellow-500 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
+              <div className="h-[500px] overflow-auto  rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl text-white font-semibold">
-                    Create Event
+                <div className="flex items-start justify-between p-5 -b rounded-t">
+                  <h3 className="text-3xl text-[#ff673a] font-semibold">
+                    CREATE SQUAD
                   </h3>
                   <button
                     className="ml-auto text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={closeModal}
                   >
                     <span className="text-white h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      x
+                      X
                     </span>
                   </button>
                 </div>
@@ -115,30 +118,6 @@ function CreateEvent() {
                       onChange={onChange}
                     />
                   </div>
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">
-                      Event Subtitle
-                    </h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Event Subtitle"
-                      type="text"
-                      name="subtitle"
-                      value={eve.subtitle}
-                      onChange={onChange}
-                    />
-                  </div>
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">Venue</h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Venue"
-                      type="text"
-                      name="venue"
-                      value={eve.venue}
-                      onChange={onChange}
-                    />
-                  </div>
 
                   <div className="md:py-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">
@@ -153,6 +132,31 @@ function CreateEvent() {
                       onChange={onChange}
                     />
                   </div>
+                  {/* vacancy */}
+                  <div className="md:py-2 px-4">
+                    <h2 className="md:text-xl p-1 my-1 text-white">Vacancy</h2>
+                    <input
+                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
+                      placeholder="Enter Team Size"
+                      type="number"
+                      name="vacancy"
+                      value={eve.vacancy}
+                      onChange={onChange}
+                    />
+                  </div>
+
+                  <div className="md:py-2 px-4">
+                    <h2 className="md:text-xl p-1 my-1 text-white">Venue</h2>
+                    <input
+                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
+                      placeholder="Enter Venue"
+                      type="text"
+                      name="venue"
+                      value={eve.venue}
+                      onChange={onChange}
+                    />
+                  </div>
+
                   <div className="md:py-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Date</h2>
                     <input
@@ -164,7 +168,19 @@ function CreateEvent() {
                       onChange={onChange}
                     />
                   </div>
+                  {/* time */}
                   <div className="md:py-2 px-4">
+                    <h2 className="md:text-xl p-1 my-1 text-white">Time</h2>
+                    <input
+                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
+                      placeholder="Enter Date"
+                      type="time"
+                      name="time"
+                      value={eve.time}
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div className="md:py-2 col-span-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Image</h2>
                     <div className="flex space-x-4">
                       <input
@@ -182,7 +198,7 @@ function CreateEvent() {
                       />
                     </div>
                   </div>
-                  <div className="md:py-2 px-4">
+                  <div className="md:py-2 px-4 col-span-2">
                     <h2 className="md:text-xl p-1 my-1 text-white">
                       Description
                     </h2>
@@ -203,7 +219,7 @@ function CreateEvent() {
                   </div>
                 </div>
                 {/*footer*/}
-                <div className="flex items-center justify-end px-6 py-2 border-t border-solid border-slate-200 rounded-b">
+                <div className="flex items-center justify-end px-6 py-2 rounded-b">
                   <button
                     className="text-white background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
@@ -212,7 +228,7 @@ function CreateEvent() {
                     Close{" "}
                   </button>
                   <button
-                    className="bg-yellow-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-[#ff673a] text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={handleClick}
                   >
@@ -222,7 +238,7 @@ function CreateEvent() {
               </div>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          <div className="opacity-50 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
     </div>

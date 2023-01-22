@@ -10,6 +10,7 @@ export const myEvents = [
     teamSize: "4",
     date: "20/3/23",
     image: eveImg,
+    vacancy: 3,
   },
   {
     title: "Event Name2",
@@ -20,5 +21,6 @@ export const myEvents = [
     teamSize: "4",
     date: "20/3/23",
     image: eveImg,
+    vacancy: 2,
   },
 ];

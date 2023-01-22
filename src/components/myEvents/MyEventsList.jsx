@@ -1,34 +1,53 @@
 import React from "react";
 import MyEventCard from "./MyEventCard";
 import eveImg from "../../public/aboutimg.png";
+import sqd from "../../public/create_squad.png";
 import { myEvents } from "./EventData";
+import CreateEvent from "./CreateEvent";
+import { useState } from "react";
 
 function MyEventsList() {
+  const [showModal, setShowModal] = useState({ show: false });
+  const handleClick = (e) => {
+    e.preventDefault();
+    setShowModal({ show: true });
+  };
   return (
-    <div className="mx-[5%] mt-10">
-      <h1 className="pl-5 text-6xl font-bold">Your Events</h1>
-      <div className="px-5">
-        <hr className="h-1 bg-black px-5" />
-      </div>
+    <>
+      <div className="w-[75%] mx-[5%] mt-10">
+        <div className="flex justify-between">
+          <h1 className="pl-5 text-6xl text-white font-bold">My Squads</h1>
+          <button className="bg-[#28282b] px-2 py-1" onClick={handleClick}>
+            <div className="flex">
+              <img src={sqd} alt="" className="w-6" />
+              <h1 className="text-white text-xl font-semibold">
+                &nbsp; Create a Squad
+              </h1>
+            </div>
+          </button>
+        </div>
 
-      {/* event list */}
-      <div className="border-2 mt-10 p-10 flex flex-col space-y-10">
-        {myEvents.map((eve, i) => {
-          return (
-            <MyEventCard
-              title={eve.title}
-              subtitle={eve.subtitle}
-              venue={eve.venue}
-              description={eve.description}
-              date={eve.date}
-              teamSize={eve.teamSize}
-              image={eve.image}
-              k={i}
-            />
-          );
-        })}
+        {/* event list */}
+        <div className=" mt-10 p-10 justify-items-center grid grid-cols-2 gap-4">
+          {myEvents.map((eve, i) => {
+            return (
+              <MyEventCard
+                title={eve.title}
+                subtitle={eve.subtitle}
+                venue={eve.venue}
+                description={eve.description}
+                date={eve.date}
+                teamSize={eve.teamSize}
+                image={eve.image}
+                vacancy={eve.vacancy}
+                k={i}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+      <CreateEvent showModal={showModal} setShowModal={setShowModal} />
+    </>
   );
 }
 
