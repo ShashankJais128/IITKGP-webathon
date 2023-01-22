@@ -19,7 +19,7 @@ function Homemain() {
         <Navbar />
 
         <div className=" flex">
-          <div className="w-full md:w-[50%] px-12  xl:pl-36 pt-24 xl:pr-24">
+          <div className="w-full md:w-[50%] px-12  xl:pl-36 pt-12 sm:pt-24 xl:pr-24">
             <img src={make} alt="" className="w-[500px]" />
             <br />
             <p className="text-xl lg:text-3xl text-white px-4">
@@ -29,7 +29,7 @@ function Homemain() {
             </p>
             <br />
             <br />
-            <div className="flex space-x-6 sm:space-x-2 md:space-x-4 lg:space-x-10 lg:pl-12">
+            <div className="flex flex-col sm:flex-row space-x-6 sm:space-x-2 md:space-x-4 lg:space-x-10 pl-6 lg:pl-12">
               <div className="xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-base lg:text-lg">
                 <a
                   href="#explore"
@@ -38,6 +38,7 @@ function Homemain() {
                   Browse Squad
                 </a>
               </div>
+              <br />
               <div className="xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-lg">
                 <Link
                   to="/myevents"

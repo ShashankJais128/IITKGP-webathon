@@ -7,7 +7,7 @@ function Sidebar() {
   return (
     <div className="w-[20%] pt-8 min-h-full">
       <div>
-        <h1 className="hidden sm:block text-white text-2xl font-semibold pl-3 sm:pl-6">
+        <h1 className="hidden sm:block text-white text-2xl font-semibold pl-1 sm:pl-6">
           Dashboard
         </h1>
       </div>

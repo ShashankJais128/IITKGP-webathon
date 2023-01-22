@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function MyEventCard(props) {
   return (
-    <div className=" bg-[#28282b] w-[310px] sm:w-[350px] md:w-[400px] lg:w-[320px] xl:w-[400px] h-[500px] flex items-center flex-col">
+    <div className=" bg-[#28282b] w-[300px] sm:w-[350px] md:w-[400px] lg:w-[320px] xl:w-[400px] h-[500px] flex items-center flex-col">
       <div className="rounded-full pt-16">
         <img
           src={props.image}

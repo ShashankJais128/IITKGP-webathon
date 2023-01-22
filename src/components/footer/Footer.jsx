@@ -18,7 +18,7 @@ function Footer() {
       <div className="flex w-full justify-center py-5 items-center">
         <img src={squad} alt="" className="w-44" />
       </div>
-      <div className="flex w-full justify-center space-x-12">
+      <div className="flex w-full justify-center space-x-8 sm:space-x-12">
         <a href="https://www.instagram.com/">
           <img src={ig} alt="" />
         </a>
