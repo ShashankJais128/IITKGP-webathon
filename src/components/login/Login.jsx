@@ -13,78 +13,78 @@ function Login() {
 
   const redirect = useNavigate();
 
-  const glogin = async (email) => {
-    const userObject = {
-      email: email,
-    };
+  // const glogin = async (email) => {
+  //   const userObject = {
+  //     email: email,
+  //   };
 
-    try {
-      const resp = await axios.post("/api/login/glogin", userObject, {
-        headers: { Authorization: `` },
-      });
+  //   try {
+  //     const resp = await axios.post("/api/login/glogin", userObject, {
+  //       headers: { Authorization: `` },
+  //     });
 
-      if (resp.data.success == true) {
-        const info = resp.data.user;
-        await authCtx.login(
-          info.name,
-          info.email,
-          info.pic,
-          resp.data.token,
-          10800000
-        );
-        localStorage.removeItem("newUserName");
-        localStorage.removeItem("newUserEmail");
-        localStorage.removeItem("newUserPicture");
-        if (authCtx.target == null) {
-          redirect("/admin/");
-        } else {
-          redirect(`/${authCtx.target}`);
-          authCtx.settarget("");
-        }
-      }
-      if (resp.status === 200) {
-        if (authCtx.target == null) {
-          redirect("/");
-        } else {
-          redirect(`/${authCtx.target}`);
-          authCtx.settarget(null);
-        }
-      } else if (resp.status === 206) {
-        redirect("/AddDataUser");
-      }
-    } catch (err) {
-      console.error(err);
+  //     if (resp.data.success == true) {
+  //       const info = resp.data.user;
+  //       await authCtx.login(
+  //         info.name,
+  //         info.email,
+  //         info.pic,
+  //         resp.data.token,
+  //         10800000
+  //       );
+  //       localStorage.removeItem("newUserName");
+  //       localStorage.removeItem("newUserEmail");
+  //       localStorage.removeItem("newUserPicture");
+  //       if (authCtx.target == null) {
+  //         redirect("/admin/");
+  //       } else {
+  //         redirect(`/${authCtx.target}`);
+  //         authCtx.settarget("");
+  //       }
+  //     }
+  //     if (resp.status === 200) {
+  //       if (authCtx.target == null) {
+  //         redirect("/");
+  //       } else {
+  //         redirect(`/${authCtx.target}`);
+  //         authCtx.settarget(null);
+  //       }
+  //     } else if (resp.status === 206) {
+  //       redirect("/AddDataUser");
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
 
-      set("Invalid Credentials");
-    }
-  };
+  //     set("Invalid Credentials");
+  //   }
+  // };
 
-  const handleCallbackResponse = (res) => {
-    const userobject = jwtDecode(res.credential);
+  // const handleCallbackResponse = (res) => {
+  //   const userobject = jwtDecode(res.credential);
 
-    let newUser = {
-      name: userobject.name,
-      emailMain: userobject.email,
-      picture: userobject.picture,
-    };
+  //   let newUser = {
+  //     name: userobject.name,
+  //     emailMain: userobject.email,
+  //     picture: userobject.picture,
+  //   };
 
-    localStorage.setItem("newUserName", JSON.stringify(userobject.name));
-    localStorage.setItem("newUserEmail", JSON.stringify(userobject.email));
-    localStorage.setItem("newUserPicture", JSON.stringify(userobject.picture));
+  //   localStorage.setItem("newUserName", JSON.stringify(userobject.name));
+  //   localStorage.setItem("newUserEmail", JSON.stringify(userobject.email));
+  //   localStorage.setItem("newUserPicture", JSON.stringify(userobject.picture));
 
-    glogin(userobject.email);
-  };
+  //   glogin(userobject.email);
+  // };
 
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id: "knksxnxnkswdnwkdnwkdnwkdnwkdwk",
-      callback: handleCallbackResponse,
-    });
-    google.accounts.id.renderButton(document.getElementById("SignInDiv"), {
-      theme: "outline",
-      size: "large",
-    });
-  }, []);
+  // useEffect(() => {
+  //   google.accounts.id.initialize({
+  //     client_id: "knksxnxnkswdnwkdnwkdnwkdnwkdwk",
+  //     callback: handleCallbackResponse,
+  //   });
+  //   google.accounts.id.renderButton(document.getElementById("SignInDiv"), {
+  //     theme: "outline",
+  //     size: "large",
+  //   });
+  // }, []);
 
   const DataInp = (e) => {
     const name = e.target.name;
@@ -165,6 +165,8 @@ function Login() {
       }}
     >
       <Navbar />
+      <br />
+      <br />
       <div className="flex flex-row justify-center px-8">
         <div className="bg-[#28282B] w-[500px] h-[500] p-4 rounded-md">
           <div className="">

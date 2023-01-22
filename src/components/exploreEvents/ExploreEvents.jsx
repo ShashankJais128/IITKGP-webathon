@@ -25,18 +25,18 @@ function ExploreEvents() {
     <>
       <div
         id="explore"
-        className="bg-black bg-cover bg-bottom  pb-8"
+        className="bg-black bg-cover bg-bottom  pb-16"
         style={{
           backgroundImage: `url(${bgex})`,
         }}
       >
         <div className="mx-[5%]">
-          <h1 className="text-6xl text-center font-semibold pt-16 text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl text-center font-semibold pt-16 text-white">
             BROWSE SQUADS
           </h1>
           <br />
           <br />
-          <div className="grid grid-cols-3 gap-y-10 gap-x-5 justify-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-5 justify-items-center">
             {loading && <div>loading</div>}
             {!loading && (
               <>
