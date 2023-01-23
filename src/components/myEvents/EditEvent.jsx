@@ -1,13 +1,9 @@
-import React, { useState, useContext } from "react";
-import eveImg from "../../public/aboutimg.png";
+import React, { useState } from "react";
 import bgn from "../../public/bgn.jpg";
-import axios from "axios";
-import AuthContext from "../../store/auth-context";
 import { myEvents } from "./EventData";
 
-function CreateEvent({ showModal, setShowModal, refresh }) {
-  const authCtx = useContext(AuthContext);
-
+function EditEvent() {
+  const [events, setEvents] = useState(myEvents);
   const [eve, setEve] = useState({
     title: "",
     venue: "",
@@ -20,8 +16,8 @@ function CreateEvent({ showModal, setShowModal, refresh }) {
   });
 
   const [show, set] = useState("");
-  const handleClick = async (e) => {
-    console.log(eve);
+  const handleClick = (e) => {
+    e.preventDefault();
     const { title, venue, description, date, teamSize, image, time, vacancy } =
       eve;
     if (
@@ -34,33 +30,20 @@ function CreateEvent({ showModal, setShowModal, refresh }) {
       vacancy !== "" &&
       time !== ""
     ) {
-      console.log(eve);
-      try {
-        const resp = await axios.post(
-          "api/competition/add",
-          {
-            name: title,
-            des: description,
-            image: image,
-            teamSize: teamSize,
-            venue: venue,
-            vac: vacancy,
-            postTime: time,
-            postDate: date,
-          },
-          {
-            headers: { Authorization: `${authCtx.token}` },
-          }
-        );
-        const data = resp.data;
-        console.log(data);
-        if (resp.status == 202) {
-          closeModal();
-          refresh();
-        }
-      } catch (err) {
-        console.log(err);
-      }
+      setEvents(events.concat(eve));
+      console.log(events);
+      set("");
+      setEve({
+        title: "",
+        subtitle: "",
+        venue: "",
+        description: "",
+        date: "",
+        teamSize: "",
+        image: "",
+        time: "",
+        vacancy: "",
+      });
     } else {
       set("Please fill all the fields");
     }
@@ -68,6 +51,11 @@ function CreateEvent({ showModal, setShowModal, refresh }) {
 
   const onChange = (e) => {
     setEve({ ...eve, [e.target.name]: e.target.value });
+  };
+  console.log(eve);
+
+  const createEve = () => {
+    setShowModal({ show: true });
   };
 
   const closeModal = () => {
@@ -118,11 +106,11 @@ function CreateEvent({ showModal, setShowModal, refresh }) {
                 <div className="grid grid-cols-1 md:grid-cols-2">
                   <div className="md:py-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">
-                      Squad Title
+                      Event Title
                     </h2>
                     <input
                       className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Squad Title"
+                      placeholder="Enter Event Title"
                       type="text"
                       name="title"
                       value={eve.title}
@@ -243,7 +231,7 @@ function CreateEvent({ showModal, setShowModal, refresh }) {
                     type="button"
                     onClick={handleClick}
                   >
-                    Create{" "}
+                    Save Changes{" "}
                   </button>
                 </div>
               </div>
@@ -256,4 +244,4 @@ function CreateEvent({ showModal, setShowModal, refresh }) {
   );
 }
 
-export default CreateEvent;
+export default EditEvent;

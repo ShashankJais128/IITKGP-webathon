@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import bgex from "../../public/bgn.jpg";
 import peop from "../../public/posted_by.png";
 import linkd from "../../public/linkedin.png";
@@ -10,6 +10,12 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function EventView() {
+  const [showModal, setShowModal] = useState({ show: false });
+  const handleClick = (e) => {
+    e.preventDefault();
+    setShowModal({ show: true });
+  };
+
   let { id } = useParams();
   return (
     <div className="w-[75%] mx-[5%] mt-16">
@@ -22,23 +28,23 @@ function EventView() {
       >
         <div className="bg-[#28282B]  py-10 px-12 ">
           <div className="flex justify-between">
-            <h1 className="text-[#ff673a] text-4xl font-bold">
+            <h1 className="text-[#ff673a] text-3xl sm:text-4xl font-bold">
               BLANKA BOTS - KSHITIJ
             </h1>
-            <div className="flex space-x-6">
+            <div className="flex space-x-3 md:space-x-6">
               <div className="flex flex-col items-center font-semibold">
-                <h1 className="text-[#ff673a] text-3xl">7</h1>
+                <h1 className="text-[#ff673a] text-2xl sm:text-3xl">7</h1>
                 <h2 className="text-white">TEAM SIZE</h2>
               </div>
               <div className="flex flex-col items-center font-semibold">
-                <h1 className="text-[#ff673a] text-3xl">4</h1>
+                <h1 className="text-[#ff673a] text-2xl sm:text-3xl">4</h1>
                 <h2 className="text-white">VACANCY</h2>
               </div>
             </div>
           </div>
           <div className="flex pb-4">
-            <img src={peop} alt="" className="w-6" />
-            <h1 className="text-white text-xl">
+            <img src={peop} alt="" className="w-4 sm:w-6" />
+            <h1 className="text-white text-lg sm:text-xl">
               &nbsp; Posted by: <span className="underline">Rishav Singh</span>
               &nbsp; &nbsp;
             </h1>
@@ -48,7 +54,7 @@ function EventView() {
           </div>
           <div className="flex">
             <img src={cal} alt="" className="w-6" />
-            <h1 className="text-white text-xl">
+            <h1 className="text-white text-lg sm:text-xl">
               &nbsp; Posted on: <span>23rd march 23</span>
               &nbsp; &nbsp;
             </h1>
@@ -56,7 +62,7 @@ function EventView() {
           <br />
           <br />
           <div>
-            <p className="text-justify text-2xl text-white">
+            <p className="text-justify text-base sm:text-lg md:text-2xl text-white">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Recusandae aliquam mollitia temporibus? Ratione at enim sed
               laudantium blanditiis consequatur, dolore non. Laboriosam nam
@@ -75,12 +81,12 @@ function EventView() {
           <br />
           <br />
           <div className="flex justify-between">
-            <div className="flex text-xl">
-              <img src={loc} alt="" className="w-6" />
+            <div className="flex text-base sm:text-xl">
+              <img src={loc} alt="" className="w-4 sm:w-6" />
               &nbsp;
               <h1 className="text-white">Kharagpur, Somewhere, India</h1>
             </div>
-            <div className="flex text-xl">
+            <div className="flex text-base sm:text-xl">
               <img src={time} alt="" className="w-6" />
               &nbsp;
               <h1 className="text-white">22:45</h1>

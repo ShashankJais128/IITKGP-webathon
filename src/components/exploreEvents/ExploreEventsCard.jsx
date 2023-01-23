@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function ExploreEventsCard(props) {
   return (
-    <div className=" bg-[#28282b] w-[420px] h-[500px] flex items-center flex-col">
+    <div className=" bg-[#28282b] w-[350px]  sm:w-[400px] md:w-[420px] h-[500px] flex items-center flex-col">
       <div className="rounded-full pt-16">
         <img
           src={props.image}

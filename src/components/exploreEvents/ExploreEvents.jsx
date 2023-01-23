@@ -31,29 +31,36 @@ function ExploreEvents() {
         }}
       >
         <div className="mx-[5%]">
-          <h1 className="text-6xl text-center font-semibold pt-16 text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl text-center font-semibold pt-16 text-white">
             BROWSE SQUADS
           </h1>
           <br />
           <br />
-          <div className="grid grid-cols-3 gap-y-10 gap-x-5 justify-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-5 justify-items-center">
             {loading && <div>loading</div>}
+            {exploreEvents.length == 0 && (
+              <center>
+                <div className=" text-white">No squads found</div>
+              </center>
+            )}
             {!loading && (
               <>
                 {exploreEvents.map((eve) => {
-                  return (
-                    <ExploreEventsCard
-                      id={eve._id}
-                      title={eve.name}
-                      venue={eve.venue}
-                      description={eve.des}
-                      date={eve.date}
-                      teamSize={eve.teamSize}
-                      image={eve.image}
-                      postDate={eve.postDate}
-                      vacancy={eve.vac}
-                    />
-                  );
+                  if (eve.show == true) {
+                    return (
+                      <ExploreEventsCard
+                        id={eve._id}
+                        title={eve.name}
+                        venue={eve.venue}
+                        description={eve.des}
+                        date={eve.date}
+                        teamSize={eve.teamSize}
+                        image={eve.image}
+                        postDate={eve.postDate}
+                        vacancy={eve.vac}
+                      />
+                    );
+                  }
                 })}
               </>
             )}

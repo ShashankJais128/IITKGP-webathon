@@ -22,18 +22,18 @@ function Homemain() {
         <Navbar />
 
         <div className=" flex">
-          <div className="w-[50%] pl-36 pt-24 pr-24">
+          <div className="w-full md:w-[50%] px-12  xl:pl-36 pt-12 sm:pt-24 xl:pr-24">
             <img src={make} alt="" className="w-[500px]" />
             <br />
-            <p className="text-3xl text-white px-4">
+            <p className="text-xl lg:text-3xl text-white px-4">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
               minima laudantium dolorem, exercitationem blanditiis provident
               nostrum harum.
             </p>
             <br />
             <br />
-            <div className="flex space-x-12 px-16">
-              <div className="hidden xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-lg">
+            <div className="flex flex-col sm:flex-row space-x-6 sm:space-x-2 md:space-x-4 lg:space-x-10 pl-6 lg:pl-12">
+              <div className="xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-base lg:text-lg">
                 <a
                   href="#explore"
                   className="py-1 px-3 hover:text-[#f2673f] rounded text-white transition duration-300"
@@ -41,10 +41,9 @@ function Homemain() {
                   Browse Squad
                 </a>
               </div>
-              <div className="hidden xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-lg">
-         
+              <div className="xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-lg">
                 <Link
-                  to={ authCtx.isLoggedIn? "/dashboard":"/login"}
+                  to={authCtx.isLoggedIn ? "/dashboard" : "/login"}
                   onClick={authCtx.settarget("dashboard")}
                   className="py-1 px-3 hover:text-[#f2673f] rounded text-white transition duration-300"
                 >

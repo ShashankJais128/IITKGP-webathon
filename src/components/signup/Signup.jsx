@@ -60,6 +60,7 @@ function Signup() {
           name: Name,
           email: Email,
           skill: Skill,
+          Linkedin: Linkedin,
           password: Password,
           College,
         };

@@ -66,7 +66,7 @@ function Login() {
           if (authCtx.target == null) {
             redirect("/");
           } else {
-            console.log(`/${authCtx.target}`)
+            console.log(`/${authCtx.target}`);
             redirect(`/${authCtx.target}`);
             authCtx.settarget(null);
           }
@@ -90,8 +90,10 @@ function Login() {
       }}
     >
       <Navbar />
+      <br />
+      <br />
       <div className="flex flex-row justify-center px-8">
-        <div className="bg-[#28282B] w-[500px] h-[500] p-4 rounded-md">
+        <div className="bg-[#28282B] w-[500px] h-[500px] p-4 rounded-md">
           <div className="">
             <p className="font-semibold text-center text-3xl text-white">
               Login
