@@ -14,8 +14,6 @@ function App() {
   return (
     <div>
       <Router>
-        {/* <Navbar /> */}
-
         <Routes>
           <Route path="/" element={<Homemain />} />
           <Route path="/myevents/*" element={<MyEvents />} />
