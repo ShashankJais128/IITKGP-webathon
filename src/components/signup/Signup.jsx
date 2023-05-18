@@ -31,8 +31,6 @@ function Signup() {
   });
 
   const submit = async (e) => {
-    // e.preventDefault();
-
     const {
       Name,
       Email,
@@ -61,9 +59,13 @@ function Signup() {
           email: Email,
           skill: Skill,
           password: Password,
+          Linkedin,
           College,
         };
         try {
+          console.log("==========userObject===========");
+          console.log(userObject);
+
           const res = await axios.post("/api/user/signup", userObject, {
             headers: { Authorization: `${authCtx.token}` },
           });
