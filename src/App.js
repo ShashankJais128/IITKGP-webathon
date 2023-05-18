@@ -8,6 +8,7 @@ import Login from "./components/login/Login";
 import Homemain from "./components/home/Homemain";
 import axios from "axios";
 import DetailView from "./components/exploreEvents/DetailView";
+
 axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
