@@ -122,7 +122,19 @@ function DetailView() {
                 </div>
               </div>
             </div>
-            <div>{Event.des}</div>
+            <div className="text-justify text-2xl">{Event.des}</div>
+            <div className="flex justify-between">
+              <div className="flex text-xl">
+                <img src={loc} alt="" className="w-6" />
+                &nbsp;
+                <h1 className="text-white">{Event.venue}</h1>
+              </div>
+              <div className="flex text-xl">
+                <img src={time} alt="" className="w-6" />
+                &nbsp;
+                <h1 className="text-white">{Event.postTime}</h1>
+              </div>
+            </div>
           </div>
         </div>
       )}
