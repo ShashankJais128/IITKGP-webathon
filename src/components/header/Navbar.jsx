@@ -18,8 +18,7 @@ function Navbar() {
         <Link to="/myevents">
           <div
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGljfGVufDB8fDB8fA%3D%3D&w=1000&q=80')",
+              backgroundImage: `url('${authCtx.user.pic}')`,
             }}
             className="  w-10 h-10 xl:flex rounded-full font-medium border-2 border-[#f2673f] items-center text-lg"
           ></div>
