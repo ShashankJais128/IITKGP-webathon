@@ -40,7 +40,11 @@ function AppliedSquads() {
   }, []);
 
   const showData = async () => {
-    const resp = await axios.post("api/dashborads/Applied/", {
+    var data = {
+      h: "hello",
+    };
+
+    const resp = await axios.post("api/dashborads/Applied/", data, {
       headers: { Authorization: `${authCtx.token}` },
     });
 
