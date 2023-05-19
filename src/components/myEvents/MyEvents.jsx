@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Components
@@ -15,6 +15,10 @@ import bg from "../../public/bgn.jpg";
 
 function MyEvents() {
   const [showDel, setDel] = useState(true);
+
+  useEffect(() => {
+    console.log(showDel);
+  }, [showDel]);
   return (
     <div
       className="bg-black bg-cover bg-bottom pb-8 justify-center"
@@ -25,7 +29,8 @@ function MyEvents() {
     >
       <Navbar />
       <div className="flex">
-        <Sidebar />
+        <Sidebar set={setDel} />
+        {showDel ? "hello" : ""}
         <Routes>
           <Route path="/myeventlist" element={<MyEventsList />} />
           <Route path="/eventview" element={<EventView />} />
