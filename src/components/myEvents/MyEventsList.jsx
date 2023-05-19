@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // Components
 import MyEventCard from "./MyEventCard";
@@ -11,17 +11,40 @@ import sqd from "../../public/create_squad.png";
 // axios
 import axios from "axios";
 
+// state
+import AuthContext from "../../store/auth-context";
+
 //
 import { myEvents } from "./EventData";
 
 function MyEventsList() {
   const [showModal, setShowModal] = useState({ show: false });
 
+  const authCtx = useContext(AuthContext);
+
   const handleClick = (e) => {
     e.preventDefault();
     setShowModal({ show: true });
   };
 
+  useEffect(() => {
+    reqData();
+  }, []);
+
+  const reqData = async () => {
+    try {
+      var request = {
+        email: authCtx.user.email,
+      };
+      const resp = await axios.post("api/dashborads/Get", request, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      console.table(resp.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <div className="w-[75%] mx-[5%] mt-10">
