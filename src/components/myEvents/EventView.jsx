@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+// components
+import CreateEvent from "./CreateEvent";
+
+// img
 import bgex from "../../public/bgn.jpg";
-import peop from "../../public/posted_by.png";
-import linkd from "../../public/linkedin.png";
-import cal from "../../public/calendar.png";
-import loc from "../../public/location.png";
 import time from "../../public/time.png";
 import rect from "../../public/Rect.png";
 import edit from "../../public/edit.png";
-import { Link } from "react-router-dom";
-import CreateEvent from "./CreateEvent";
-import { useState } from "react";
+import cal from "../../public/calendar.png";
+import loc from "../../public/location.png";
+import linkd from "../../public/linkedin.png";
+import peop from "../../public/posted_by.png";
 
 function EventView() {
   const [showModal, setShowModal] = useState({ show: false });
+
   const handleClick = (e) => {
     e.preventDefault();
     setShowModal({ show: true });
