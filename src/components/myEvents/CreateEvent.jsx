@@ -147,6 +147,7 @@ function CreateEvent({ showModal, setShowModal }) {
                     />
                   </div>
 
+                  {/* Team Size */}
                   <div className="md:py-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">
                       Team Size
@@ -187,6 +188,7 @@ function CreateEvent({ showModal, setShowModal }) {
                     />
                   </div>
 
+                  {/* Venue */}
                   <div className="md:py-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Venue</h2>
                     <input
@@ -199,6 +201,7 @@ function CreateEvent({ showModal, setShowModal }) {
                     />
                   </div>
 
+                  {/* Date */}
                   <div className="md:py-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Date</h2>
                     <input
@@ -210,7 +213,8 @@ function CreateEvent({ showModal, setShowModal }) {
                       onChange={onChange}
                     />
                   </div>
-                  {/* time */}
+
+                  {/* Time */}
                   <div className="md:py-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Time</h2>
                     <input
@@ -222,6 +226,8 @@ function CreateEvent({ showModal, setShowModal }) {
                       onChange={onChange}
                     />
                   </div>
+
+                  {/* Image */}
                   <div className="md:py-2 md:col-span-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Image</h2>
                     <div className="flex space-x-4">
