@@ -81,74 +81,49 @@ function DetailView() {
         <Navbar />
       </div>
       {!loading && (
-        <div
-          className="bg-black bg-cover bg-bottom relative h-[650px] pb-8 flex justify-center"
-          style={{
-            backgroundImage: ` url(${bgex})`,
-          }}
-        >
-          <div className="w-[90%] bg-[#28282B]  py-10 px-12 hello">
-            <div className="flex justify-between">
-              <h1 className="text-[#ff673a] text-4xl font-bold">
-                {Event.name}
-              </h1>
-              <div className="flex space-x-6">
-                <div className="flex flex-col items-center font-semibold">
-                  <h1 className="text-[#ff673a] text-3xl"> {Event.teamSize}</h1>
-                  <h2 className="text-white">TEAM SIZE</h2>
-                </div>
-                <div className="flex flex-col items-center font-semibold">
-                  <h1 className="text-[#ff673a] text-3xl">{Event.vac}</h1>
-                  <h2 className="text-white">VACANCY</h2>
-                </div>
-              </div>
-            </div>
-            <div className="flex pb-4">
-              <img src={peop} alt="" className="w-6" />
-              <h1 className="text-white text-xl">
-                &nbsp; Posted by:{" "}
-                <span className="underline">{Event.host.name}</span>
-                &nbsp; &nbsp;
-              </h1>
-              <a href="https://www.linkedin.com" className="w-5">
-                <img src={linkd} alt="" />
-              </a>
-            </div>
-            <div className="flex">
-              <img src={cal} alt="" className="w-6" />
-              <h1 className="text-white text-xl">
-                &nbsp; Posted on: <span> {Event.postDate}</span>
-                &nbsp; &nbsp;
-              </h1>
-            </div>
-            <br />
-            <br />
+        <div className={DVCss.bgImg}>
+          <div className={DVCss.mDiv}>
             <div>
-              <p className="text-justify text-2xl text-white">{Event.des}</p>
-            </div>
-            <br />
-            <br />
-            <div className="flex justify-between">
-              <div className="flex text-xl">
-                <img src={loc} alt="" className="w-6" />
-                &nbsp;
-                <h1 className="text-white">{Event.venue}</h1>
+              <div className="flex justify-between">
+                <p className={DVCss.Eventname}>{Event.name}</p>
+                <div className="flex space-x-6">
+                  <div className="flex flex-col items-center font-semibold">
+                    <h1 className="text-[#ff673a] text-3xl">
+                      {" "}
+                      {Event.teamSize}
+                    </h1>
+                    <h2 className="text-white">TEAM SIZE</h2>
+                  </div>
+                  <div className="flex flex-col items-center font-semibold">
+                    <h1 className="text-[#ff673a] text-3xl">{Event.vac}</h1>
+                    <h2 className="text-white">VACANCY</h2>
+                  </div>
+                </div>
               </div>
-              <div className="flex text-xl">
-                <img src={time} alt="" className="w-6" />
-                &nbsp;
-                <h1 className="text-white">{Event.postTime}</h1>
+              <div className={DVCss.subDel}>
+                <div className="flex flex-col gap-y-5">
+                  <div className="flex">
+                    <img src={cal} alt="" className="w-6" />
+                    <h1 className="text-white text-xl">
+                      &nbsp; Posted on: <span> {Event.postDate}</span>
+                      &nbsp; &nbsp;
+                    </h1>
+                  </div>
+                  <div className="flex pb-4">
+                    <img src={peop} alt="" className="w-6" />
+                    <h1 className="text-white text-xl">
+                      &nbsp; Posted by:{" "}
+                      <span className="underline">{Event.host.name}</span>
+                      &nbsp; &nbsp;
+                    </h1>
+                    <a href="https://www.linkedin.com" className="w-5">
+                      <img src={linkd} alt="" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            <br />
-            <div className="flex justify-center items-center">
-              <button
-                className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
-                onClick={() => setShowModal(true)}
-              >
-                Apply Now
-              </button>
-            </div>
+            <div>{Event.des}</div>
           </div>
         </div>
       )}
