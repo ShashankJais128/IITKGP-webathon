@@ -22,6 +22,14 @@ function EventView() {
     setShowModal({ show: true });
   };
 
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const resp = await axios.get(`/api/competition/getCompetition/${id}`);
+  };
+
   return (
     <>
       <div className="w-[75%] mx-[5%] mt-16">
