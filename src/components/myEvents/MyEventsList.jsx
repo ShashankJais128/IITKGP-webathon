@@ -78,6 +78,7 @@ function MyEventsList() {
                     teamSize={val.teamSize}
                     image={val.image}
                     vacancy={val.vac}
+                    id={val._id}
                     key={key}
                   />
                 );
