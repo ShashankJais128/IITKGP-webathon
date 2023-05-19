@@ -1,11 +1,17 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Components
 import Navbar from "./components/header/Navbar";
 import Footer from "./components/footer/Footer";
+
+// Pages
+import Login from "./components/login/Login";
+import Signup from "./components/signup/Signup";
+import Homemain from "./components/home/Homemain";
 import MyEvents from "./components/myEvents/MyEvents";
 import ExploreEvents from "./components/exploreEvents/ExploreEvents";
-import Signup from "./components/signup/Signup";
-import Login from "./components/login/Login";
-import Homemain from "./components/home/Homemain";
+
+// Axios
 import axios from "axios";
 import DetailView from "./components/exploreEvents/DetailView";
 
