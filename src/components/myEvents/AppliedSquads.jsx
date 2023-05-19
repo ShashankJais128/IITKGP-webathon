@@ -31,7 +31,6 @@ function AppliedSquads() {
 
     if (resp.data) {
       console.log(resp.data);
-
       setData(resp.data);
     }
   };
