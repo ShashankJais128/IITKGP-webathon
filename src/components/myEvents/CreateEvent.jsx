@@ -246,6 +246,8 @@ function CreateEvent({ showModal, setShowModal }) {
                       />
                     </div>
                   </div>
+
+                  {/* Description */}
                   <div className="md:py-2 px-4 md:col-span-2">
                     <h2 className="md:text-xl p-1 my-1 text-white">
                       Description
@@ -266,6 +268,7 @@ function CreateEvent({ showModal, setShowModal }) {
                     )}
                   </div>
                 </div>
+
                 {/*footer*/}
                 <div className="flex items-center justify-end px-6 py-2 rounded-b">
                   <button
