@@ -9,6 +9,7 @@ import Navbar from "../header/Navbar";
 import CreateEvent from "./CreateEvent";
 import MyEventsList from "./MyEventsList";
 import AppliedSquads from "./AppliedSquads";
+import Details from "./Details";
 
 // img
 import bg from "../../public/bgn.jpg";
@@ -24,9 +25,9 @@ function MyEvents() {
     >
       <Navbar />
       <div className="flex">
-        <Sidebar set={setDel} />
-        {showDel ? "hello" : ""}
+        <Sidebar />
         <Routes>
+          <Route path="/" element={<Details />} />
           <Route path="/myeventlist" element={<MyEventsList />} />
           <Route path="/eventview" element={<EventView />} />
           <Route path="/applicants" element={<Applicants />} />
