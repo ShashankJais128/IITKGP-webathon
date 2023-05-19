@@ -79,7 +79,7 @@ function DetailView() {
       </div>
       {!loading && (
         <div
-          className="bg-black bg-cover bg-bottom relative h-[650px] pb-8 flex justify-center"
+          className="bg-black bg-cover bg-bottom relative h-[650px] pb-8 flex justify-center hello"
           style={{
             backgroundImage: ` url(${bgex})`,
           }}
