@@ -38,7 +38,6 @@ function MyEventsList() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.table(resp.data);
       if (resp.data) {
         setData(resp.data);
       }
