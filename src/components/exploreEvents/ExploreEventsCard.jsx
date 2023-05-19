@@ -8,7 +8,7 @@ function ExploreEventsCard(props) {
         <img
           src={props.image}
           alt=""
-          className="rounded-full w-[180px] h-[180px] "
+          className="rounded-full w-[180px] h-[180px] object-cover aspect-square"
         />
       </div>
       <h1 className="text-4xl pt-2 font-semibold text-white">{props.title}</h1>
