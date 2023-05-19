@@ -7,7 +7,6 @@ import Footer from "./components/footer/Footer";
 
 // Axios
 import axios from "axios";
-import DetailView from "./components/exploreEvents/DetailView";
 
 // Base
 axios.defaults.baseURL = "http://localhost:5000/";
@@ -17,6 +16,9 @@ const Login = React.lazy(() => import("./components/login/Login"));
 const Signup = React.lazy(() => import("./components/signup/Signup"));
 const Homemain = React.lazy(() => import("./components/home/Homemain"));
 const MyEvents = React.lazy(() => import("./components/myEvents/MyEvents"));
+const DetailView = React.lazy(() =>
+  import("./components/exploreEvents/DetailView")
+);
 const ExploreEvents = React.lazy(() =>
   import("./components/exploreEvents/ExploreEvents")
 );

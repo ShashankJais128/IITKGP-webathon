@@ -1,25 +1,38 @@
-import React, { useRef } from "react";
-import rect from "../../public/Rect.png";
+import React, { useRef, useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+
+// components
 import Navbar from "../header/Navbar";
+
+// img
+import rect from "../../public/Rect.png";
 import bgex from "../../public/bgn.jpg";
 import peop from "../../public/posted_by.png";
 import linkd from "../../public/linkedin.png";
 import cal from "../../public/calendar.png";
 import loc from "../../public/location.png";
 import time from "../../public/time.png";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+
+// css
+import DVCss from "./Css/DetailView.module.css";
+
+// axios
 import axios from "axios";
-import { useEffect, useState,useContext } from "react";
+
+// state
 import AuthContext from "../../store/auth-context";
 
 function DetailView() {
   const [Event, setEvent] = useState([]);
-  const authCtx = useContext(AuthContext);
-  const msgref = useRef();
-  const [showModal, setShowModal] = React.useState(false);
-  let { id } = useParams();
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  const authCtx = useContext(AuthContext);
+
+  const msgref = useRef();
+
+  let { id } = useParams();
+
   async function getCompetion() {
     try {
       const resp = await axios.get(`/api/competition/getCompetition/${id}`);
@@ -31,28 +44,32 @@ function DetailView() {
       console.log(e);
     }
   }
+
   useEffect(() => {
     getCompetion();
   }, [id]);
+
   async function applySquad() {
     const request = {
       competitionID: id,
       hostID: Event.host._id,
       message: msgref.current.value,
     };
+
     try {
       const resp = await axios.post("api/request/Add/", request, {
         headers: { Authorization: `${authCtx.token}` },
       });
-      const data=resp.data
-      console.log(data)
-      if(data=="Saved"){
-      setShowModal(false)
+      const data = resp.data;
+      console.log(data);
+      if (data == "Saved") {
+        setShowModal(false);
       }
     } catch (err) {
       console.log(err);
     }
   }
+
   return (
     <>
       <div
@@ -64,53 +81,48 @@ function DetailView() {
         <Navbar />
       </div>
       {!loading && (
-        <div
-          className="bg-black bg-cover bg-bottom relative h-[650px] pb-8 flex justify-center"
-          style={{
-            backgroundImage: ` url(${bgex})`,
-          }}
-        >
-          <div className="w-[90%] bg-[#28282B]  py-10 px-12 absolute -top-20">
-            <div className="flex justify-between">
-              <h1 className="text-[#ff673a] text-4xl font-bold">
-                {Event.name}
-              </h1>
-              <div className="flex space-x-6">
-                <div className="flex flex-col items-center font-semibold">
-                  <h1 className="text-[#ff673a] text-3xl"> {Event.teamSize}</h1>
-                  <h2 className="text-white">TEAM SIZE</h2>
+        <div className={DVCss.bgImg}>
+          <div className={DVCss.mDiv}>
+            <div>
+              <div className="flex justify-between">
+                <p className={DVCss.Eventname}>{Event.name}</p>
+                <div className="flex space-x-6">
+                  <div className="flex flex-col items-center font-semibold">
+                    <h1 className="text-[#ff673a] text-3xl">
+                      {Event.teamSize}
+                    </h1>
+                    <h2 className="text-white">TEAM SIZE</h2>
+                  </div>
+                  <div className="flex flex-col items-center font-semibold">
+                    <h1 className="text-[#ff673a] text-3xl">{Event.vac}</h1>
+                    <h2 className="text-white">VACANCY</h2>
+                  </div>
                 </div>
-                <div className="flex flex-col items-center font-semibold">
-                  <h1 className="text-[#ff673a] text-3xl">{Event.vac}</h1>
-                  <h2 className="text-white">VACANCY</h2>
+              </div>
+              <div className={DVCss.subDel}>
+                <div className="flex flex-col gap-y-5">
+                  <div className="flex">
+                    <img src={cal} alt="" className="w-6" />
+                    <h1 className="text-white text-xl">
+                      &nbsp; Posted on: <span> {Event.postDate}</span>
+                      &nbsp; &nbsp;
+                    </h1>
+                  </div>
+                  <div className="flex pb-4">
+                    <img src={peop} alt="" className="w-6" />
+                    <h1 className="text-white text-xl">
+                      &nbsp; Posted by:{" "}
+                      <span className="underline">{Event.host.name}</span>
+                      &nbsp; &nbsp;
+                    </h1>
+                    <a href="https://www.linkedin.com" className="w-5">
+                      <img src={linkd} alt="" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="flex pb-4">
-              <img src={peop} alt="" className="w-6" />
-              <h1 className="text-white text-xl">
-                &nbsp; Posted by:{" "}
-                <span className="underline">{Event.host.name}</span>
-                &nbsp; &nbsp;
-              </h1>
-              <a href="https://www.linkedin.com" className="w-5">
-                <img src={linkd} alt="" />
-              </a>
-            </div>
-            <div className="flex">
-              <img src={cal} alt="" className="w-6" />
-              <h1 className="text-white text-xl">
-                &nbsp; Posted on: <span> {Event.postDate}</span>
-                &nbsp; &nbsp;
-              </h1>
-            </div>
-            <br />
-            <br />
-            <div>
-              <p className="text-justify text-2xl text-white">{Event.des}</p>
-            </div>
-            <br />
-            <br />
+            <div className="text-justify text-2xl my-5">{Event.des}</div>
             <div className="flex justify-between">
               <div className="flex text-xl">
                 <img src={loc} alt="" className="w-6" />
@@ -123,10 +135,8 @@ function DetailView() {
                 <h1 className="text-white">{Event.postTime}</h1>
               </div>
             </div>
-            <br />
-            <br />
-            <div className="flex justify-center">
-              <br />
+
+            <div className="flex justify-center items-center my-10">
               <button
                 className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
                 onClick={() => setShowModal(true)}
@@ -193,7 +203,10 @@ function DetailView() {
                 </div>
                 {/*footer*/}
                 <div className="flex justify-center items-center p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button onClick={applySquad} className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1">
+                  <button
+                    onClick={applySquad}
+                    className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
+                  >
                     Apply
                   </button>
                 </div>
