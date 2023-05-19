@@ -10,12 +10,8 @@ import AuthContext from "../../store/auth-context";
 // axois
 import axios from "axios";
 
-import { myEvents } from "./EventData";
-
 function CreateEvent({ showModal, setShowModal }) {
   const authCtx = useContext(AuthContext);
-
-  const [events, setEvents] = useState(myEvents);
 
   const [show, set] = useState("");
 
