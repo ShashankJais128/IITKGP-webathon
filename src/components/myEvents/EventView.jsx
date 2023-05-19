@@ -60,15 +60,19 @@ function EventView() {
                 </div>
                 <div className="flex justify-between ">
                   <h1 className="text-[#ff673a] text-3xl sm:text-4xl font-bold">
-                    BLANKA BOTS - KSHITIJ
+                    {showData.name}
                   </h1>
                   <div className="flex space-x-3 md:space-x-6">
                     <div className="flex flex-col items-center font-semibold">
-                      <h1 className="text-[#ff673a] text-2xl sm:text-3xl">7</h1>
+                      <h1 className="text-[#ff673a] text-2xl sm:text-3xl">
+                        {showData.teamSize}
+                      </h1>
                       <h2 className="text-white">TEAM SIZE</h2>
                     </div>
                     <div className="flex flex-col items-center font-semibold">
-                      <h1 className="text-[#ff673a] text-2xl sm:text-3xl">4</h1>
+                      <h1 className="text-[#ff673a] text-2xl sm:text-3xl">
+                        {showData.vac}
+                      </h1>
                       <h2 className="text-white">VACANCY</h2>
                     </div>
                   </div>
@@ -78,7 +82,7 @@ function EventView() {
                   <img src={peop} alt="" className="w-4 sm:w-6" />
                   <h1 className="text-white text-lg sm:text-xl">
                     &nbsp; Posted by:{" "}
-                    <span className="underline">Rishav Singh</span>
+                    <span className="underline">{showData.host.name}</span>
                     &nbsp; &nbsp;
                   </h1>
                   <a href="https://www.linkedin.com" className="w-5">
@@ -96,20 +100,7 @@ function EventView() {
                 <br />
                 <div>
                   <p className="text-justify text-base sm:text-lg md:text-2xl text-white">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Recusandae aliquam mollitia temporibus? Ratione at enim sed
-                    laudantium blanditiis consequatur, dolore non. Laboriosam
-                    nam reprehenderit, a facere eaque modi sit placeat vero
-                    perferendis explicabo, tenetur, ea odit sint doloribus
-                    facilis. Saepe quidem sed aspernatur officiis nesciunt
-                    labore deserunt cupiditate aperiam ipsum impedit vitae
-                    dolores rem ipsa, mollitia, quisquam, excepturi nam
-                    dignissimos! Eaque suscipit odio dolorem enim nesciunt
-                    reprehenderit sequi, reiciendis, optio inventore dolorum
-                    autem mollitia. Assumenda voluptate provident voluptatum
-                    beatae culpa asperiores iusto dicta maiores reprehenderit
-                    nulla quisquam officiis ducimus, earum quasi sequi veniam
-                    eligendi, quae expedita dolorum? Saepe, iure autem!
+                    {showData.des}
                   </p>
                 </div>
                 <br />
