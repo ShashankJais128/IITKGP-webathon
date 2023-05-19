@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+// Components
 import MyEventCard from "./MyEventCard";
+import CreateEvent from "./CreateEvent";
+
+// img
 import eveImg from "../../public/aboutimg.png";
 import sqd from "../../public/create_squad.png";
+
+// axios
+import axios from "axios";
+
+//
 import { myEvents } from "./EventData";
-import CreateEvent from "./CreateEvent";
-import { useState } from "react";
 
 function MyEventsList() {
   const [showModal, setShowModal] = useState({ show: false });
+
   const handleClick = (e) => {
     e.preventDefault();
     setShowModal({ show: true });
   };
+
   return (
     <>
       <div className="w-[75%] mx-[5%] mt-10">
