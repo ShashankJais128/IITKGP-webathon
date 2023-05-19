@@ -2,12 +2,16 @@ import React from "react";
 import Navbar from "../header/Navbar";
 import CreateEvent from "./CreateEvent";
 import MyEventsList from "./MyEventsList";
-import EventView from "./EventView";
+import { Routes, Route } from "react-router-dom";
+
+// Components
 import Sidebar from "./Sidebar";
-import bg from "../../public/bgn.jpg";
+import EventView from "./EventView";
 import Applicants from "./Applicants";
 import AppliedSquads from "./AppliedSquads";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+
+// img
+import bg from "../../public/bgn.jpg";
 
 function MyEvents() {
   return (
