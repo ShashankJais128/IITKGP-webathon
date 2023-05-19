@@ -92,7 +92,7 @@ function EventView() {
                 <div className="flex">
                   <img src={cal} alt="" className="w-4 sm:w-6" />
                   <h1 className="text-white text-lg sm:text-xl">
-                    &nbsp; Posted on: <span>{showData.date}</span>
+                    &nbsp; Posted on: <span>{showData.postDate}</span>
                     &nbsp; &nbsp;
                   </h1>
                 </div>
@@ -109,12 +109,12 @@ function EventView() {
                   <div className="flex text-base sm:text-xl">
                     <img src={loc} alt="" className="w-4 sm:w-6" />
                     &nbsp;
-                    <h1 className="text-white">Kharagpur, Somewhere, India</h1>
+                    <h1 className="text-white">{showData.venue}</h1>
                   </div>
                   <div className="flex text-base sm:text-xl">
                     <img src={time} alt="" className="w-4 sm:w-6" />
                     &nbsp;
-                    <h1 className="text-white">22:45</h1>
+                    <h1 className="text-white">{showData.postTime}</h1>
                   </div>
                 </div>
                 <br />
