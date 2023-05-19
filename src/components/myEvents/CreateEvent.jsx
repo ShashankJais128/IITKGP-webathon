@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+// img
 import eveImg from "../../public/aboutimg.png";
 import bgn from "../../public/bgn.jpg";
+
 import { myEvents } from "./EventData";
 
 function CreateEvent({ showModal, setShowModal }) {
+  const authCtx = useContext(AuthContext);
+
   const [events, setEvents] = useState(myEvents);
+
+  const [show, set] = useState("");
+
   const [eve, setEve] = useState({
     title: "",
     venue: "",
@@ -16,8 +24,7 @@ function CreateEvent({ showModal, setShowModal }) {
     vacancy: "",
   });
 
-  const [show, set] = useState("");
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
     const { title, venue, description, date, teamSize, image, time, vacancy } =
       eve;
@@ -31,6 +38,10 @@ function CreateEvent({ showModal, setShowModal }) {
       vacancy !== "" &&
       time !== ""
     ) {
+      const resp = await axios.post("api/request/Add/", request, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
       setEvents(events.concat(eve));
       console.log(events);
       set("");
