@@ -58,7 +58,6 @@ code {
 
 .hello {
   margin-top: -80px;
-  /* height: fit-content; */
 }
 
 @tailwind base;
