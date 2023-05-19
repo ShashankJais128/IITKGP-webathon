@@ -1,8 +1,16 @@
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
 import Navbar from "./components/header/Navbar";
 import Footer from "./components/footer/Footer";
+
+// Axios
+import axios from "axios";
+import DetailView from "./components/exploreEvents/DetailView";
+
+// Base
+axios.defaults.baseURL = "http://localhost:5000/";
 
 // Pages
 const Login = React.lazy(() => import("./components/login/Login"));
@@ -12,13 +20,6 @@ const MyEvents = React.lazy(() => import("./components/myEvents/MyEvents"));
 const ExploreEvents = React.lazy(() =>
   import("./components/exploreEvents/ExploreEvents")
 );
-
-// Axios
-import axios from "axios";
-import DetailView from "./components/exploreEvents/DetailView";
-
-// Base
-axios.defaults.baseURL = "http://localhost:5000/";
 
 function App() {
   return (
