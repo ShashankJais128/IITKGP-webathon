@@ -27,10 +27,6 @@ function MyEvents() {
           <Route path="/applicants" element={<Applicants />} />
           <Route path="/appsquad" element={<AppliedSquads />} />
         </Routes>
-        {/* <MyEventsList /> */}
-        {/* <EventView /> */}
-        {/* <Applicants /> */}
-        {/* <AppliedSquads /> */}
       </div>
     </div>
   );
