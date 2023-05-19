@@ -19,6 +19,7 @@ import peop from "../../public/posted_by.png";
 
 function EventView() {
   const [showModal, setShowModal] = useState({ show: false });
+  const [showData, setData] = useState();
 
   let { id } = useParams();
 
@@ -34,7 +35,8 @@ function EventView() {
   const getData = async () => {
     const resp = await axios.get(`/api/competition/getCompetition/${id}`);
 
-    // if(resp)
+    if (resp.data) {
+    }
 
     console.log(resp.data);
   };
