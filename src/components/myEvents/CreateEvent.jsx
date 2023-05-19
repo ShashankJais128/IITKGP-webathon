@@ -25,12 +25,22 @@ function CreateEvent({ showModal, setShowModal }) {
     image: "",
     time: "",
     vacancy: "",
+    categoryName: "",
   });
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const { title, venue, description, date, teamSize, image, time, vacancy } =
-      eve;
+    const {
+      title,
+      venue,
+      description,
+      date,
+      teamSize,
+      image,
+      time,
+      vacancy,
+      categoryName,
+    } = eve;
     if (
       title !== "" &&
       venue !== "" &&
@@ -39,7 +49,8 @@ function CreateEvent({ showModal, setShowModal }) {
       teamSize !== "" &&
       image !== "" &&
       vacancy !== "" &&
-      time !== ""
+      time !== "" &&
+      categoryName !== ""
     ) {
       // const resp = await axios.post("api/competition/add", request, {
       //   headers: { Authorization: `${authCtx.token}` },
@@ -47,7 +58,7 @@ function CreateEvent({ showModal, setShowModal }) {
 
       // setEvents(events.concat(eve));
       console.log("Events");
-      console.log(events);
+      console.log(eve);
 
       set("");
 
@@ -61,6 +72,7 @@ function CreateEvent({ showModal, setShowModal }) {
         image: "",
         time: "",
         vacancy: "",
+        categoryName: "",
       });
     } else {
       set("Please fill all the fields");
@@ -86,6 +98,7 @@ function CreateEvent({ showModal, setShowModal }) {
       image: "",
       time: "",
       vacancy: "",
+      categoryName: "",
     });
     setShowModal({ show: false });
   };
@@ -155,6 +168,19 @@ function CreateEvent({ showModal, setShowModal }) {
                       type="number"
                       name="vacancy"
                       value={eve.vacancy}
+                      onChange={onChange}
+                    />
+                  </div>
+
+                  {/* categoryName */}
+                  <div className="md:py-2 px-4">
+                    <h2 className="md:text-xl p-1 my-1 text-white">Category</h2>
+                    <input
+                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
+                      placeholder="Enter Category"
+                      type="text"
+                      name="categoryName"
+                      value={eve.categoryName}
                       onChange={onChange}
                     />
                   </div>
