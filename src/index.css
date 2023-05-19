@@ -21,6 +21,20 @@ code {
     monospace;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.pageExt {
+  max-width: 1750px;
+  width: 100%;
+  background-color: #fff;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
