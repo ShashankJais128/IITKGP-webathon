@@ -1,6 +1,8 @@
 import React from "react";
-import eveImg from "../../public/aboutimg.png";
 import { Link } from "react-router-dom";
+
+// img
+import eveImg from "../../public/aboutimg.png";
 
 function MyEventCard(props) {
   return (
