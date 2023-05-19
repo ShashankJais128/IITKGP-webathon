@@ -1,19 +1,20 @@
-import React from "react";
-import Navbar from "../header/Navbar";
-import CreateEvent from "./CreateEvent";
-import MyEventsList from "./MyEventsList";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Components
 import Sidebar from "./Sidebar";
 import EventView from "./EventView";
 import Applicants from "./Applicants";
+import Navbar from "../header/Navbar";
+import CreateEvent from "./CreateEvent";
+import MyEventsList from "./MyEventsList";
 import AppliedSquads from "./AppliedSquads";
 
 // img
 import bg from "../../public/bgn.jpg";
 
 function MyEvents() {
+  const [showDel, setDel] = useState(true);
   return (
     <div
       className="bg-black bg-cover bg-bottom pb-8 justify-center"
