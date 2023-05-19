@@ -1,23 +1,35 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
-import rect from "../../public/Rect.png";
+import { useParams } from "react-router-dom";
+
+// components
 import Navbar from "../header/Navbar";
+
+// img
+import rect from "../../public/Rect.png";
 import bgex from "../../public/bgn.jpg";
 import peop from "../../public/posted_by.png";
 import linkd from "../../public/linkedin.png";
 import cal from "../../public/calendar.png";
 import loc from "../../public/location.png";
 import time from "../../public/time.png";
-import { useParams } from "react-router-dom";
+
+// axios
 import axios from "axios";
+
+// state
 import AuthContext from "../../store/auth-context";
 
 function DetailView() {
   const [Event, setEvent] = useState([]);
-  const authCtx = useContext(AuthContext);
-  const msgref = useRef();
-  const [showModal, setShowModal] = React.useState(false);
-  let { id } = useParams();
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  const authCtx = useContext(AuthContext);
+
+  const msgref = useRef();
+
+  let { id } = useParams();
+
   async function getCompetion() {
     try {
       const resp = await axios.get(`/api/competition/getCompetition/${id}`);
@@ -29,15 +41,18 @@ function DetailView() {
       console.log(e);
     }
   }
+
   useEffect(() => {
     getCompetion();
   }, [id]);
+
   async function applySquad() {
     const request = {
       competitionID: id,
       hostID: Event.host._id,
       message: msgref.current.value,
     };
+
     try {
       const resp = await axios.post("api/request/Add/", request, {
         headers: { Authorization: `${authCtx.token}` },
@@ -51,6 +66,7 @@ function DetailView() {
       console.log(err);
     }
   }
+
   return (
     <>
       <div
