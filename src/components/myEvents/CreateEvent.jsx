@@ -159,6 +159,7 @@ function CreateEvent({ showModal, setShowModal }) {
                       onChange={onChange}
                     />
                   </div>
+
                   {/* vacancy */}
                   <div className="md:py-2 px-4">
                     <h2 className="md:text-xl p-1 my-1 text-white">Vacancy</h2>
