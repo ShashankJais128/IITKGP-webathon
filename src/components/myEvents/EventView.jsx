@@ -45,7 +45,7 @@ function EventView() {
       {showData ? (
         <>
           <div className="w-[75%] mx-[5%] mt-16">
-            <img src={rect} alt="" />
+            <img src={showData.image} alt="" className="w-full" />
             <div
               className="bg-black w-full bg-cover bg-bottom pb-8 flex justify-center"
               style={{
