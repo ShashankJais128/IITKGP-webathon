@@ -19,6 +19,7 @@ import { myEvents } from "./EventData";
 
 function MyEventsList() {
   const [showModal, setShowModal] = useState({ show: false });
+  const [showData, setData] = useState([]);
 
   const authCtx = useContext(AuthContext);
 
@@ -41,6 +42,9 @@ function MyEventsList() {
       });
 
       console.table(resp.data);
+      if (resp.data) {
+        setData(resp.data);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -64,6 +68,27 @@ function MyEventsList() {
 
         {/* event list */}
         <div className=" mt-10 p-10 justify-items-center grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {showData ? (
+            <>
+              {showData.map((val, key) => {
+                return (
+                  <MyEventCard
+                    title={val.name}
+                    subtitle={val.subtitle}
+                    venue={val.venue}
+                    description={val.description}
+                    date={val.date}
+                    teamSize={val.teamSize}
+                    image={val.image}
+                    vacancy={val.vac}
+                    key={key}
+                  />
+                );
+              })}
+            </>
+          ) : (
+            ""
+          )}
           {myEvents.map((eve, i) => {
             return (
               <MyEventCard
