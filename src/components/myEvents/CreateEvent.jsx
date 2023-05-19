@@ -130,6 +130,7 @@ function CreateEvent({ showModal, setShowModal }) {
                     </span>
                   </button>
                 </div>
+
                 {/*body*/}
                 <div className="grid grid-cols-1 md:grid-cols-2">
                   <div className="md:py-2 px-4">
