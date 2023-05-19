@@ -1,4 +1,6 @@
 import React from "react";
+
+// img
 import rect from "../../public/Rect.png";
 import linkd from "../../public/linkedin.png";
 import pp from "../../public/posted_by.png";
