@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 // components
 import CreateEvent from "./CreateEvent";
+
+// axios
+import axios from "axios";
 
 // img
 import bgex from "../../public/bgn.jpg";
@@ -17,9 +20,22 @@ import peop from "../../public/posted_by.png";
 function EventView() {
   const [showModal, setShowModal] = useState({ show: false });
 
+  let { id } = useParams();
+
   const handleClick = (e) => {
     e.preventDefault();
     setShowModal({ show: true });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    console.log(id);
+    const resp = await axios.get(`/api/competition/getCompetition/${id}`);
+
+    console.log(resp);
   };
 
   return (
