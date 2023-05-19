@@ -71,7 +71,7 @@ function AppliedSquads() {
                       <img src={peop} alt="" className="w-6" />
                       <h1 className="text-white text-xl md:text-start">
                         &nbsp; Posted by:{" "}
-                        <span className="underline">Rishav Singh</span>
+                        <span className="underline">{data.hostID.name}</span>
                         &nbsp; &nbsp;
                       </h1>
                       <a href="https://www.linkedin.com" className="w-5">
