@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import rect from "../../public/Rect.png";
 import Navbar from "../header/Navbar";
 import bgex from "../../public/bgn.jpg";
@@ -8,9 +8,7 @@ import cal from "../../public/calendar.png";
 import loc from "../../public/location.png";
 import time from "../../public/time.png";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState,useContext } from "react";
 import AuthContext from "../../store/auth-context";
 
 function DetailView() {
@@ -44,10 +42,10 @@ function DetailView() {
       const resp = await axios.post("api/request/Add/", request, {
         headers: { Authorization: `${authCtx.token}` },
       });
-      const data=resp.data
-      console.log(data)
-      if(data=="Saved"){
-      setShowModal(false)
+      const data = resp.data;
+      console.log(data);
+      if (data == "Saved") {
+        setShowModal(false);
       }
     } catch (err) {
       console.log(err);
@@ -193,7 +191,10 @@ function DetailView() {
                 </div>
                 {/*footer*/}
                 <div className="flex justify-center items-center p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button onClick={applySquad} className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1">
+                  <button
+                    onClick={applySquad}
+                    className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
+                  >
                     Apply
                   </button>
                 </div>
