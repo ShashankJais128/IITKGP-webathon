@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 // components
 import CreateEvent from "./CreateEvent";
 
+// axios
+import axios from "axios";
+
 // img
 import bgex from "../../public/bgn.jpg";
 import time from "../../public/time.png";
