@@ -92,7 +92,7 @@ function EventView() {
                 <div className="flex">
                   <img src={cal} alt="" className="w-4 sm:w-6" />
                   <h1 className="text-white text-lg sm:text-xl">
-                    &nbsp; Posted on: <span>23rd march 23</span>
+                    &nbsp; Posted on: <span>{showData.date}</span>
                     &nbsp; &nbsp;
                   </h1>
                 </div>
