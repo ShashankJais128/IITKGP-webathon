@@ -64,11 +64,15 @@ function EventView() {
                   </h1>
                   <div className="flex space-x-3 md:space-x-6">
                     <div className="flex flex-col items-center font-semibold">
-                      <h1 className="text-[#ff673a] text-2xl sm:text-3xl">7</h1>
+                      <h1 className="text-[#ff673a] text-2xl sm:text-3xl">
+                        {showData.teamSize}
+                      </h1>
                       <h2 className="text-white">TEAM SIZE</h2>
                     </div>
                     <div className="flex flex-col items-center font-semibold">
-                      <h1 className="text-[#ff673a] text-2xl sm:text-3xl">4</h1>
+                      <h1 className="text-[#ff673a] text-2xl sm:text-3xl">
+                        {showData.vac}
+                      </h1>
                       <h2 className="text-white">VACANCY</h2>
                     </div>
                   </div>
