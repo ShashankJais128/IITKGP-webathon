@@ -122,7 +122,7 @@ function DetailView() {
                 </div>
               </div>
             </div>
-            <div className="text-justify text-2xl">{Event.des}</div>
+            <div className="text-justify text-2xl my-5">{Event.des}</div>
             <div className="flex justify-between">
               <div className="flex text-xl">
                 <img src={loc} alt="" className="w-6" />
@@ -134,6 +134,15 @@ function DetailView() {
                 &nbsp;
                 <h1 className="text-white">{Event.postTime}</h1>
               </div>
+            </div>
+
+            <div className="flex justify-center items-center my-10">
+              <button
+                className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
+                onClick={() => setShowModal(true)}
+              >
+                Apply Now
+              </button>
             </div>
           </div>
         </div>
