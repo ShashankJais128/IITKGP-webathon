@@ -14,9 +14,6 @@ import axios from "axios";
 // state
 import AuthContext from "../../store/auth-context";
 
-//
-import { myEvents } from "./EventData";
-
 function MyEventsList() {
   const [showModal, setShowModal] = useState({ show: false });
   const [showData, setData] = useState([]);
@@ -89,21 +86,6 @@ function MyEventsList() {
           ) : (
             ""
           )}
-          {myEvents.map((eve, i) => {
-            return (
-              <MyEventCard
-                title={eve.title}
-                subtitle={eve.subtitle}
-                venue={eve.venue}
-                description={eve.description}
-                date={eve.date}
-                teamSize={eve.teamSize}
-                image={eve.image}
-                vacancy={eve.vacancy}
-                k={i}
-              />
-            );
-          })}
         </div>
       </div>
       <CreateEvent showModal={showModal} setShowModal={setShowModal} />
