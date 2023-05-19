@@ -15,7 +15,7 @@ function Navbar() {
         </Link>
       </div>
       {authCtx.isLoggedIn && (
-        <Link to="/dashboard">
+        <Link to="/myevents">
           <div
             style={{
               backgroundImage:
