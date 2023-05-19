@@ -10,7 +10,6 @@ import axios from "axios";
 // img
 import bgex from "../../public/bgn.jpg";
 import time from "../../public/time.png";
-import rect from "../../public/Rect.png";
 import edit from "../../public/edit.png";
 import cal from "../../public/calendar.png";
 import loc from "../../public/location.png";
@@ -125,7 +124,7 @@ function EventView() {
                     <br />
                     <div className="flex justify-center">
                       <br />
-                      <Link to="/myevents/applicants">
+                      <Link to={`/myevents/${id}/applicants`}>
                         <button className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1">
                           Applicants
                         </button>
