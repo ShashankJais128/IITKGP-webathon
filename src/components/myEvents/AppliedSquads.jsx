@@ -1,4 +1,12 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "../../store/auth-context";
+
+// img
 import img from "../../public/Rect.png";
 import peop from "../../public/posted_by.png";
 import linkd from "../../public/linkedin.png";
@@ -25,14 +33,30 @@ const appSquad = [
 ];
 
 function AppliedSquads() {
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    showData();
+  }, []);
+
+  const showData = async () => {
+    const resp = await axios.post("api/dashborads/Applied/", {
+      headers: { Authorization: `${authCtx.token}` },
+    });
+
+    console.log(resp);
+  };
   return (
     <div className="w-[75%] mx-[5%] mt-20">
       <h1 className="text-white text-4xl font-semibold mb-5">Applied Squads</h1>
 
       <div className="flex flex-col w-full space-y-4">
-        {appSquad.map((data) => {
+        {appSquad.map((data, key) => {
           return (
-            <div className="bg-[#28282B] flex flex-col items-center md:items-start md:flex-row w-full p-4">
+            <div
+              className="bg-[#28282B] flex flex-col items-center md:items-start md:flex-row w-full p-4"
+              key={key}
+            >
               <div className="">
                 <img src={data.image} alt="" className="w-[180px] h-[180px]" />
               </div>
