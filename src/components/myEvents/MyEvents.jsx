@@ -30,7 +30,7 @@ function MyEvents() {
           <Route path="/" element={<Details />} />
           <Route path="/myeventlist" element={<MyEventsList />} />
           <Route path="/eventview/:id" element={<EventView />} />
-          <Route path="/applicants" element={<Applicants />} />
+          <Route path="/:id/applicants" element={<Applicants />} />
           <Route path="/appsquad" element={<AppliedSquads />} />
         </Routes>
       </div>
