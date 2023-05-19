@@ -32,7 +32,6 @@ function EventView() {
   }, []);
 
   const getData = async () => {
-    console.log(id);
     const resp = await axios.get(`/api/competition/getCompetition/${id}`);
 
     console.log(resp);
