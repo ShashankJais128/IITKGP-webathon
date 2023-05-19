@@ -3,9 +3,6 @@ import React, { useContext } from "react";
 // redux
 import AuthContext from "../../store/auth-context";
 
-// css
-import DCss from "./Css/Details.module.css";
-
 export default function Details() {
   const authCtx = useContext(AuthContext);
   return (
