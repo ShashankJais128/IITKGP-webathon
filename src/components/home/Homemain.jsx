@@ -41,7 +41,7 @@ function Homemain() {
               <br />
               <div className="xl:flex w-fit rounded-full font-medium border-2 border-[#f2673f] items-center text-lg">
                 <Link
-                  to="/myevents"
+                  to="/myevents/myeventlist"
                   className="py-1 px-3 hover:text-[#f2673f] rounded text-white transition duration-300"
                 >
                   Create Squad
