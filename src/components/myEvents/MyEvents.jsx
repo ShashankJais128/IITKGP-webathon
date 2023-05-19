@@ -14,11 +14,6 @@ import AppliedSquads from "./AppliedSquads";
 import bg from "../../public/bgn.jpg";
 
 function MyEvents() {
-  const [showDel, setDel] = useState(true);
-
-  useEffect(() => {
-    console.log(showDel);
-  }, [showDel]);
   return (
     <div
       className="bg-black bg-cover bg-bottom pb-8 justify-center"
