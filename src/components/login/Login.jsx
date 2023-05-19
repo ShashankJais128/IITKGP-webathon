@@ -140,7 +140,7 @@ function Login() {
             10800000
           );
           if (authCtx.target == null) {
-            redirect("/dashboard");
+            redirect("/myevents");
           } else {
             redirect(`/${authCtx.target}`);
             authCtx.settarget(null);
