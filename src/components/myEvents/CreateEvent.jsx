@@ -7,6 +7,9 @@ import bgn from "../../public/bgn.jpg";
 // store
 import AuthContext from "../../store/auth-context";
 
+// axois
+import axios from "axios";
+
 import { myEvents } from "./EventData";
 
 function CreateEvent({ showModal, setShowModal }) {
@@ -52,28 +55,39 @@ function CreateEvent({ showModal, setShowModal }) {
       time !== "" &&
       categoryName !== ""
     ) {
-      // const resp = await axios.post("api/competition/add", request, {
-      //   headers: { Authorization: `${authCtx.token}` },
-      // });
-
-      // setEvents(events.concat(eve));
-      console.log("Events");
-      console.log(eve);
-
-      set("");
-
-      setEve({
-        title: "",
-        subtitle: "",
-        venue: "",
-        description: "",
-        date: "",
-        teamSize: "",
-        image: "",
-        time: "",
-        vacancy: "",
-        categoryName: "",
+      var request = {
+        name: title,
+        des: description,
+        image,
+        teamSize,
+        venue,
+        vac: vacancy,
+        postDate: date,
+        postTime: time,
+        categoryName,
+      };
+      const resp = await axios.post("api/competition/add", request, {
+        headers: { Authorization: `${authCtx.token}` },
       });
+
+      if (resp.data) {
+        set("");
+
+        setEve({
+          title: "",
+          subtitle: "",
+          venue: "",
+          description: "",
+          date: "",
+          teamSize: "",
+          image: "",
+          time: "",
+          vacancy: "",
+          categoryName: "",
+        });
+
+        closeModal();
+      }
     } else {
       set("Please fill all the fields");
     }
