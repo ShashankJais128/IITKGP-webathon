@@ -16,6 +16,7 @@ import peop from "../../public/posted_by.png";
 
 function EventView() {
   const [showModal, setShowModal] = useState({ show: false });
+
   const handleClick = (e) => {
     e.preventDefault();
     setShowModal({ show: true });
