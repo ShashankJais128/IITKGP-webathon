@@ -82,7 +82,7 @@ function EventView() {
                   <img src={peop} alt="" className="w-4 sm:w-6" />
                   <h1 className="text-white text-lg sm:text-xl">
                     &nbsp; Posted by:{" "}
-                    <span className="underline">Rishav Singh</span>
+                    <span className="underline">{showData.host.name}</span>
                     &nbsp; &nbsp;
                   </h1>
                   <a href="https://www.linkedin.com" className="w-5">
