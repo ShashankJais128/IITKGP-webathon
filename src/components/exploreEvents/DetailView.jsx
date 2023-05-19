@@ -89,7 +89,6 @@ function DetailView() {
                 <div className="flex space-x-6">
                   <div className="flex flex-col items-center font-semibold">
                     <h1 className="text-[#ff673a] text-3xl">
-                      {" "}
                       {Event.teamSize}
                     </h1>
                     <h2 className="text-white">TEAM SIZE</h2>
