@@ -92,7 +92,6 @@ function CreateEvent({ showModal, setShowModal }) {
   const onChange = (e) => {
     setEve({ ...eve, [e.target.name]: e.target.value });
   };
-  console.log(eve);
 
   const createEve = () => {
     setShowModal({ show: true });
