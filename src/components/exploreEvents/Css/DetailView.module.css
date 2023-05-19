@@ -1,0 +1,26 @@
+.bgImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mDiv {
+  margin-top: -80px;
+  background-color: #28282b;
+  width: 90%;
+  color: #fff;
+  padding: 40px 50px;
+}
+
+.Eventname {
+  color: #ff673a;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.subDel {
+  display: flex;
+  margin: 10px 0px;
+  justify-content: space-between;
+}
