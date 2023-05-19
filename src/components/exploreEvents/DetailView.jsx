@@ -13,6 +13,9 @@ import cal from "../../public/calendar.png";
 import loc from "../../public/location.png";
 import time from "../../public/time.png";
 
+// css
+import DVCss from "./Css/DetailView.module.css";
+
 // axios
 import axios from "axios";
 
