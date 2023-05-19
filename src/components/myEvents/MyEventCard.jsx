@@ -25,7 +25,7 @@ function MyEventCard(props) {
         </div>
       </div>
       <br />
-      <Link to="/myevents/eventview" className="w-full px-10">
+      <Link to={`/myevents/eventview/${props.id}`} className="w-full px-10">
         <button className="bg-[#ff673a] text-white text-3xl font-semibold w-full">
           VIEW
         </button>
