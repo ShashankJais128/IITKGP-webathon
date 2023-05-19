@@ -62,7 +62,7 @@ function AppliedSquads() {
                     </div>
                     <br />
                     <div className="w-full ">
-                      <p className="text-center md:text-right text-white text-lg">
+                      <p className="text-center md:text-right text-white text-2xl capitalize">
                         {data.status}
                       </p>
                     </div>
