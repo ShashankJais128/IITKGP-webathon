@@ -1,7 +1,10 @@
-import React from "react";
-import { useContext } from "react";
-import AuthContext from "../../store/auth-context";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+
+// redux
+import AuthContext from "../../store/auth-context";
+
+// img
 import squad from "../../public/squad.png";
 
 function Navbar() {
