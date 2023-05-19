@@ -79,12 +79,12 @@ function DetailView() {
       </div>
       {!loading && (
         <div
-          className="bg-black bg-cover bg-bottom relative h-[650px] pb-8 flex justify-center hello"
+          className="bg-black bg-cover bg-bottom relative h-[650px] pb-8 flex justify-center"
           style={{
             backgroundImage: ` url(${bgex})`,
           }}
         >
-          <div className="w-[90%] bg-[#28282B]  py-10 px-12 absolute -top-20">
+          <div className="w-[90%] bg-[#28282B]  py-10 px-12 hello">
             <div className="flex justify-between">
               <h1 className="text-[#ff673a] text-4xl font-bold">
                 {Event.name}
@@ -138,9 +138,7 @@ function DetailView() {
               </div>
             </div>
             <br />
-            <br />
-            <div className="flex justify-center">
-              <br />
+            <div className="flex justify-center items-center">
               <button
                 className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
                 onClick={() => setShowModal(true)}
