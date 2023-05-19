@@ -4,6 +4,9 @@ import React, { useState, useContext } from "react";
 import eveImg from "../../public/aboutimg.png";
 import bgn from "../../public/bgn.jpg";
 
+// store
+import AuthContext from "../../store/auth-context";
+
 import { myEvents } from "./EventData";
 
 function CreateEvent({ showModal, setShowModal }) {
@@ -38,13 +41,16 @@ function CreateEvent({ showModal, setShowModal }) {
       vacancy !== "" &&
       time !== ""
     ) {
-      const resp = await axios.post("api/request/Add/", request, {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      // const resp = await axios.post("api/competition/add", request, {
+      //   headers: { Authorization: `${authCtx.token}` },
+      // });
 
-      setEvents(events.concat(eve));
+      // setEvents(events.concat(eve));
+      console.log("Events");
       console.log(events);
+
       set("");
+
       setEve({
         title: "",
         subtitle: "",
