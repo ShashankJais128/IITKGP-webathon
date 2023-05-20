@@ -46,9 +46,6 @@ function Applicants() {
     getCompetion();
   }, []);
 
-  useEffect(() => {
-    console.log(showUserInfo);
-  }, [showUserInfo]);
   return (
     <>
       <div className="w-[75%] mx-[5%] mt-16">
@@ -66,7 +63,7 @@ function Applicants() {
                     {showUserInfo.map((val, key) => {
                       return (
                         <>
-                          <option value={val.userID.name}>
+                          <option value={val.userID.name} key={val.userID._id}>
                             {val.userID.name}
                           </option>
                         </>
