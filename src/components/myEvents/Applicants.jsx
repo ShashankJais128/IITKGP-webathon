@@ -1,4 +1,11 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "../../store/auth-context";
 
 // img
 import rect from "../../public/Rect.png";
@@ -8,6 +15,29 @@ import pp from "../../public/posted_by.png";
 const skill = ["MongoDB", "React"];
 
 function Applicants() {
+  let { id } = useParams();
+
+  const authCtx = useContext(AuthContext);
+
+  async function getCompetion() {
+    try {
+      var comData = {
+        competitionID: id,
+      };
+
+      const resp = await axios.post(`/api/request/AllReqofCom`, comData, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+      const data = resp.data;
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    getCompetion();
+  }, []);
   return (
     <div className="w-[75%] mx-[5%] mt-16">
       <img src={rect} alt="" />
