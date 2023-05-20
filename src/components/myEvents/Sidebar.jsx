@@ -1,5 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+// state
+import AuthContext from "./../../store/auth-context";
 
 // img
 import sq from "../../public/my_squads.png";
@@ -7,6 +10,14 @@ import ap from "../../public/applied.png";
 import logoutImg from "./../../public/logout.svg";
 
 function Sidebar() {
+  const authCtx = useContext(AuthContext);
+
+  const redirect = useNavigate();
+
+  const logoutFun = async () => {
+    redirect("/Login");
+    authCtx.logout();
+  };
   return (
     <div className="w-[20%] pt-8 min-h-full">
       <div>
@@ -29,12 +40,12 @@ function Sidebar() {
             </h1>
           </div>
         </Link>
-        <div className="flex bg-gray-700 p-2 rounded-md mt-20">
+        <div
+          className="flex bg-gray-700 p-2 rounded-md mt-20"
+          onClick={logoutFun}
+        >
           <img src={logoutImg} alt="" className="w-5" />
-          <h1 className="hidden sm:block text-white ml-2" onClick={logoutFun}>
-            {" "}
-            Logout
-          </h1>
+          <h1 className="hidden sm:block text-white ml-2"> Logout</h1>
         </div>
       </div>
     </div>
