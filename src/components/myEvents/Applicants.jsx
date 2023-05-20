@@ -76,9 +76,6 @@ function Applicants() {
                 ) : (
                   ""
                 )}
-                {/* <option value="">RISHAV SINGH</option>
-              <option value="">SHASHANK JAISWAL</option>
-              <option value="">ADITYA RANJAN</option> */}
               </select>
             </div>
             <br />
