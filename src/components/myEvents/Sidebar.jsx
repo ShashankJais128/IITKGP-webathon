@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// img
 import sq from "../../public/my_squads.png";
 import ap from "../../public/applied.png";
-import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
