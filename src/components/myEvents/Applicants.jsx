@@ -54,7 +54,7 @@ function Applicants() {
       {showComInfo ? (
         <>
           <div className="w-[75%] mx-[5%] mt-16">
-            <img src={rect} alt="" />
+            <img src={showComInfo.image} alt="" />
             <div className=" bg-[#28282B] p-6">
               <div className="flex flex-col items-center md:flex-row md:justify-between mb-5">
                 <div>
