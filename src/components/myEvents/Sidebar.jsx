@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // img
 import sq from "../../public/my_squads.png";
 import ap from "../../public/applied.png";
+import logoutImg from "./../../public/logout.svg";
 
 function Sidebar() {
   return (
@@ -28,6 +29,13 @@ function Sidebar() {
             </h1>
           </div>
         </Link>
+        <div className="flex bg-gray-700 p-2 rounded-md mt-20">
+          <img src={logoutImg} alt="" className="w-5" />
+          <h1 className="hidden sm:block text-white ml-2" onClick={logoutFun}>
+            {" "}
+            Logout
+          </h1>
+        </div>
       </div>
     </div>
   );
