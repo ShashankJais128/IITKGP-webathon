@@ -31,6 +31,8 @@ function Applicants() {
       });
 
       if (resp.data) {
+        console.log(resp.data.comData);
+
         setUserInfo(resp.data.comData);
         setImg(resp.data.comData[0].competitionID.image);
         setSelect(resp.data.comData[0].userID.name);
@@ -48,8 +50,9 @@ function Applicants() {
     setSelect(e.target.value);
   };
 
-  const Accept = async () => {
+  const Accept = async (event, param) => {
     console.log("Accept");
+    console.log(param);
   };
 
   const Reject = async () => {
@@ -87,20 +90,44 @@ function Applicants() {
               </select>
             </div>
             <br />
-            <div className="flex space-x-6">
-              <button
-                className="text-xl text-[#ff673a] font-semibold"
-                onClick={Accept}
-              >
-                Accept
-              </button>
-              <button
-                className="text-xl text-white font-semibold"
-                onClick={Reject}
-              >
-                Reject
-              </button>
-            </div>
+
+            <>
+              {showSelect ? (
+                <>
+                  {showUserInfo ? (
+                    <>
+                      {showUserInfo
+                        .filter((item) => {
+                          return item.userID.name === showSelect;
+                        })
+                        .map((val, key) => {
+                          return (
+                            <div className="flex space-x-6" key={key}>
+                              <button
+                                className="text-xl text-[#ff673a] font-semibold"
+                                onClick={(event) => Accept(event, val)}
+                                // onClick={Accept(event, val)}
+                              >
+                                Accept
+                              </button>
+                              <button
+                                className="text-xl text-white font-semibold"
+                                onClick={Reject}
+                              >
+                                Reject
+                              </button>
+                            </div>
+                          );
+                        })}
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </>
+              ) : (
+                ""
+              )}
+            </>
           </div>
           <br />
           <>
