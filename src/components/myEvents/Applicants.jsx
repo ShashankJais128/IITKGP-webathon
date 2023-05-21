@@ -8,7 +8,6 @@ import axios from "axios";
 import AuthContext from "../../store/auth-context";
 
 // img
-import rect from "../../public/Rect.png";
 import linkd from "../../public/linkedin.png";
 import pp from "../../public/posted_by.png";
 
