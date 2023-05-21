@@ -106,7 +106,6 @@ function Applicants() {
                               <button
                                 className="text-xl text-[#ff673a] font-semibold"
                                 onClick={(event) => Accept(event, val)}
-                                // onClick={Accept(event, val)}
                               >
                                 Accept
                               </button>
