@@ -16,6 +16,8 @@ const skill = ["MongoDB", "React"];
 function Applicants() {
   const [showUserInfo, setUserInfo] = useState([]);
   const [showImg, setImg] = useState();
+  const [showSelect, setSelect] = useState("");
+
   let { id } = useParams();
 
   const authCtx = useContext(AuthContext);
@@ -31,10 +33,9 @@ function Applicants() {
       });
 
       if (resp.data) {
-        console.log(resp.data);
-
         setUserInfo(resp.data.comData);
         setImg(resp.data.comData[0].competitionID.image);
+        setSelect(resp.data.comData[0].userID.name);
       }
     } catch (e) {
       console.log(e);
@@ -46,7 +47,7 @@ function Applicants() {
   }, []);
 
   const selectVal = async (e) => {
-    console.log(e.target.value);
+    setSelect(e.target.value);
   };
 
   return (
@@ -90,16 +91,51 @@ function Applicants() {
             </div>
           </div>
           <br />
-          <div className="flex justify-center md:justify-start">
-            <img src={pp} alt="" className="w-6 md:w-8 mr-4" />
-            <h1 className="text-xl sm:text-2xl md:text-3xl text-[#ff673a] font-bold">
-              Rishav singh
-            </h1>{" "}
-            &nbsp; &nbsp;
-            <a href="https://www.linkedin.com" className="w-6 md:w-8">
-              <img src={linkd} alt="" />
-            </a>
-          </div>
+          <>
+            {showSelect ? (
+              <>
+                {showUserInfo ? (
+                  <>
+                    {showUserInfo
+                      .filter((item) => {
+                        return item.userID.name === showSelect;
+                      })
+                      .map((val, key) => {
+                        return (
+                          <>
+                            <div
+                              className="flex justify-center md:justify-start"
+                              key={key}
+                            >
+                              <img
+                                src={pp}
+                                alt=""
+                                className="w-6 md:w-8 mr-4"
+                              />
+                              <h1 className="text-xl sm:text-2xl md:text-3xl text-[#ff673a] font-bold">
+                                {val.userID.name}
+                              </h1>{" "}
+                              &nbsp; &nbsp;
+                              <a
+                                href="https://www.linkedin.com"
+                                className="w-6 md:w-8"
+                              >
+                                <img src={linkd} alt="" />
+                              </a>
+                            </div>
+                          </>
+                        );
+                      })}
+                  </>
+                ) : (
+                  ""
+                )}
+              </>
+            ) : (
+              ""
+            )}
+          </>
+
           <br />
           <br />
           <div className="flex p-2">
