@@ -90,13 +90,13 @@ function Applicants() {
             <div className="flex space-x-6">
               <button
                 className="text-xl text-[#ff673a] font-semibold"
-                onChange={Accept}
+                onClick={Accept}
               >
                 Accept
               </button>
               <button
                 className="text-xl text-white font-semibold"
-                onChange={Reject}
+                onClick={Reject}
               >
                 Reject
               </button>
