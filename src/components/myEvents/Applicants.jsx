@@ -31,8 +31,6 @@ function Applicants() {
       });
 
       if (resp.data) {
-        console.table(resp.data.comData);
-
         setUserInfo(resp.data.comData);
         setImg(resp.data.comData[0].competitionID.image);
         setSelect(resp.data.comData[0].userID.name);
@@ -48,6 +46,14 @@ function Applicants() {
 
   const selectVal = async (e) => {
     setSelect(e.target.value);
+  };
+
+  const Accept = async () => {
+    console.log("Accept");
+  };
+
+  const Reject = async () => {
+    console.log("Reject");
   };
 
   return (
@@ -82,10 +88,16 @@ function Applicants() {
             </div>
             <br />
             <div className="flex space-x-6">
-              <button className="text-xl text-[#ff673a] font-semibold">
+              <button
+                className="text-xl text-[#ff673a] font-semibold"
+                onChange={Accept}
+              >
                 Accept
               </button>
-              <button className="text-xl text-white font-semibold">
+              <button
+                className="text-xl text-white font-semibold"
+                onChange={Reject}
+              >
                 Reject
               </button>
             </div>
