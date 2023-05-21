@@ -52,11 +52,24 @@ function Applicants() {
 
   const Accept = async (event, param) => {
     console.log("Accept");
-    console.log(param);
+
+    const dataSend = {
+      competitionID: param.competitionID._id,
+      userID: param.userID._id,
+    };
+
+    console.log(dataSend);
   };
 
   const Reject = async (event, param) => {
     console.log("Reject");
+
+    const dataSend = {
+      competitionID: param.competitionID._id,
+      userID: param.userID._id,
+    };
+
+    console.log(dataSend);
   };
 
   return (
