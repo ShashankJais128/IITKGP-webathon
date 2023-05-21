@@ -33,6 +33,8 @@ function Applicants() {
       });
 
       if (resp.data) {
+        console.table(resp.data.comData);
+
         setUserInfo(resp.data.comData);
         setImg(resp.data.comData[0].competitionID.image);
         setSelect(resp.data.comData[0].userID.name);
@@ -123,6 +125,40 @@ function Applicants() {
                                 <img src={linkd} alt="" />
                               </a>
                             </div>
+                            <br />
+                            <br />
+                            <div className="flex p-2">
+                              <div className="w-[50%]">
+                                <h1 className="text-gray-300 text-lg md:text-xl">
+                                  SKILLS
+                                </h1>
+                                <br />
+                                <div className="flex flex-wrap gap-2">
+                                  {val.userID.skills.map((data, key) => {
+                                    return (
+                                      <p
+                                        className="p-2 bg-gray-400 w-fit text-white rounded-full"
+                                        key={key}
+                                      >
+                                        {data}
+                                      </p>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                              <div className="w-[50%]">
+                                <h1 className="text-gray-300 text-lg md:text-xl">
+                                  MESSAGE
+                                </h1>
+                                <br />
+                                <p className="text-white md:text-lg">
+                                  Lorem, ipsum dolor sit amet consectetur
+                                  adipisicing elit. Perspiciatis eius vel maxime
+                                  laborum voluptates quia! Illo corporis sequi
+                                  facilis nam!
+                                </p>
+                              </div>
+                            </div>
                           </>
                         );
                       })}
@@ -135,33 +171,6 @@ function Applicants() {
               ""
             )}
           </>
-
-          <br />
-          <br />
-          <div className="flex p-2">
-            <div className="w-[50%]">
-              <h1 className="text-gray-300 text-lg md:text-xl">SKILLS</h1>
-              <br />
-              <div className="flex flex-wrap gap-2">
-                {skill.map((data) => {
-                  return (
-                    <p className="p-2 bg-gray-400 w-fit text-white rounded-full">
-                      {data}
-                    </p>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="w-[50%]">
-              <h1 className="text-gray-300 text-lg md:text-xl">MESSAGE</h1>
-              <br />
-              <p className="text-white md:text-lg">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Perspiciatis eius vel maxime laborum voluptates quia! Illo
-                corporis sequi facilis nam!
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </>
