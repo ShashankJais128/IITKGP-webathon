@@ -45,6 +45,10 @@ function Applicants() {
     getCompetion();
   }, []);
 
+  const selectVal = async (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <>
       <div className="w-[75%] mx-[5%] mt-16">
@@ -53,9 +57,10 @@ function Applicants() {
           <div className="flex flex-col items-center md:flex-row md:justify-between mb-5">
             <div>
               <select
-                name=""
+                name="userName"
                 id=""
                 className="p-2 bg-gray-400 text-white text-xl md:text-2xl font-semibold"
+                onChange={selectVal}
               >
                 {showUserInfo ? (
                   <>
