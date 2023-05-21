@@ -11,8 +11,6 @@ import AuthContext from "../../store/auth-context";
 import linkd from "../../public/linkedin.png";
 import pp from "../../public/posted_by.png";
 
-const skill = ["MongoDB", "React"];
-
 function Applicants() {
   const [showUserInfo, setUserInfo] = useState([]);
   const [showImg, setImg] = useState();
