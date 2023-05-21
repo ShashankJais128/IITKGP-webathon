@@ -20,7 +20,7 @@ function Applicants() {
 
   const authCtx = useContext(AuthContext);
 
-  async function getCompetion() {
+  const getCompetion = async () => {
     try {
       var comData = {
         competitionID: id,
@@ -40,7 +40,7 @@ function Applicants() {
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   useEffect(() => {
     getCompetion();
