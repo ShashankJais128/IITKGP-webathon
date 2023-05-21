@@ -55,7 +55,7 @@ function Applicants() {
     console.log(param);
   };
 
-  const Reject = async () => {
+  const Reject = async (event, param) => {
     console.log("Reject");
   };
 
@@ -111,7 +111,7 @@ function Applicants() {
                               </button>
                               <button
                                 className="text-xl text-white font-semibold"
-                                onClick={Reject}
+                                onClick={(event) => Reject(event, val)}
                               >
                                 Reject
                               </button>
