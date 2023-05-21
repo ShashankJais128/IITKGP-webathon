@@ -58,6 +58,14 @@ function Applicants() {
       userID: param.userID._id,
     };
 
+    const resp = await axios.post(`/api/request/AcceptReq`, dataSend, {
+      headers: { Authorization: `${authCtx.token}` },
+    });
+
+    console.log(resp);
+
+    getCompetion();
+
     console.log(dataSend);
   };
 
@@ -69,13 +77,21 @@ function Applicants() {
       userID: param.userID._id,
     };
 
+    const resp = await axios.post(`/api/request/RemoveReq`, dataSend, {
+      headers: { Authorization: `${authCtx.token}` },
+    });
+
+    console.log(resp);
+
+    getCompetion();
+
     console.log(dataSend);
   };
 
   return (
     <>
       <div className="w-[75%] mx-[5%] mt-16">
-        <img src={showImg} alt="" />
+        <img src={showImg} alt="" className="w-full" />
         <div className=" bg-[#28282B] p-6">
           <div className="flex flex-col items-center md:flex-row md:justify-between mb-5">
             <div>
