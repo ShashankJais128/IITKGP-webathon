@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 // components
-import CreateEvent from "./CreateEvent";
+import ViewTeam from "./ViewTeam";
 
 // axios
 import axios from "axios";
@@ -43,6 +43,7 @@ function EventView() {
 
   const viewTeam = (e) => {
     e.preventDefault();
+    setShowModal({ show: true });
   };
   return (
     <>
@@ -161,7 +162,7 @@ function EventView() {
         </>
       )}
 
-      <CreateEvent showModal={showModal} setShowModal={setShowModal} />
+      <ViewTeam showModal={showModal} setShowModal={setShowModal} />
     </>
   );
 }
