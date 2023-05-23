@@ -162,7 +162,11 @@ function EventView() {
         </>
       )}
 
-      <ViewTeam showModal={showModal} setShowModal={setShowModal} />
+      <ViewTeam
+        showModal={showModal}
+        setShowModal={setShowModal}
+        data={showData.participants}
+      />
     </>
   );
 }
