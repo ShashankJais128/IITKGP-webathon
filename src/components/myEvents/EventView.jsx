@@ -41,6 +41,9 @@ function EventView() {
     }
   };
 
+  const viewTeam = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
       {!loading && (
@@ -48,18 +51,24 @@ function EventView() {
           {showData ? (
             <>
               <div className="w-[75%] mx-[5%] mt-16">
-                <div className="w-full relative">
-                  <img src={showData.image} alt="" className="w-full" />
-                  <button
-                    className="bg-[#28282b] px-2 py-1"
-                    // onClick={handleClick}
-                  >
-                    <div className="flex">
-                      <h1 className="text-[#ff673a] text-lg sm:text-xl font-semibold">
-                        &nbsp; View Team
-                      </h1>
-                    </div>
-                  </button>
+                <div className="w-full relative h-[400px]">
+                  <img
+                    src={showData.image}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="flex justify-center absolute bottom-2.5 left-0 w-full">
+                    <button
+                      className="bg-[#28282b] px-7 py-2"
+                      onClick={viewTeam}
+                    >
+                      <div className="flex">
+                        <h1 className="text-[#ff673a] text-lg sm:text-xl font-semibold">
+                          &nbsp; View Team
+                        </h1>
+                      </div>
+                    </button>
+                  </div>
                 </div>
                 <div
                   className="bg-black w-full bg-cover bg-bottom pb-8 flex justify-center"
