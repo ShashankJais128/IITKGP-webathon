@@ -54,13 +54,13 @@ function ViewTeam({ showModal, setShowModal, data }) {
                 </div>
 
                 {/*body*/}
-                <div className="mb-10">
-                  {data ? (
+                <div className="mb-10 px-10">
+                  {data.length > 0 ? (
                     <>
                       {data.map((val, key) => {
                         return (
                           <div key={key}>
-                            <p className="text-white">
+                            <p className="text-white text-2xl">
                               {val._id.name}
                               <span className="ml-5">{val._id.email}</span>
                             </p>
@@ -69,7 +69,7 @@ function ViewTeam({ showModal, setShowModal, data }) {
                       })}
                     </>
                   ) : (
-                    ""
+                    <p className="text-white text-2xl">No Members</p>
                   )}
                 </div>
 
