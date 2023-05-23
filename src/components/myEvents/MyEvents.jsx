@@ -6,11 +6,11 @@ import Sidebar from "./Sidebar";
 import Navbar from "../header/Navbar";
 
 // Route Components
-import Details from "./Details";
-import EventView from "./EventView";
-import Applicants from "./Applicants";
-import MyEventsList from "./MyEventsList";
-import AppliedSquads from "./AppliedSquads";
+const Details = React.lazy(() => import("./Details"));
+const EventView = React.lazy(() => import("./EventView"));
+const Applicants = React.lazy(() => import("./Applicants"));
+const MyEventsList = React.lazy(() => import("./MyEventsList"));
+const AppliedSquads = React.lazy(() => import("./AppliedSquads"));
 
 // img
 import bg from "../../public/bgn.jpg";
