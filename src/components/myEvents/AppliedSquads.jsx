@@ -39,6 +39,9 @@ function AppliedSquads() {
       <h1 className="text-white text-4xl font-semibold mb-5">Applied Squads</h1>
 
       <div className="flex flex-col w-full space-y-4">
+        <>
+          <p className="text-[#fff] text-4xl text-center mt-[5%]">No Applied</p>
+        </>{" "}
         {showDataMap ? (
           <>
             {showDataMap.map((data, key) => {
@@ -84,7 +87,7 @@ function AppliedSquads() {
             })}
           </>
         ) : (
-          ""
+          <></>
         )}
       </div>
     </div>
