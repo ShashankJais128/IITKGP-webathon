@@ -9,6 +9,8 @@ import Navbar from "../header/Navbar";
 import CreateEvent from "./CreateEvent";
 import MyEventsList from "./MyEventsList";
 import AppliedSquads from "./AppliedSquads";
+
+// Route Components
 import Details from "./Details";
 
 // img
