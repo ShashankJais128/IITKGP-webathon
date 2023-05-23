@@ -3,14 +3,14 @@ import { Routes, Route } from "react-router-dom";
 
 // Components
 import Sidebar from "./Sidebar";
-import EventView from "./EventView";
 import Navbar from "../header/Navbar";
 
 // Route Components
 import Details from "./Details";
+import EventView from "./EventView";
+import Applicants from "./Applicants";
 import MyEventsList from "./MyEventsList";
 import AppliedSquads from "./AppliedSquads";
-import Applicants from "./Applicants";
 
 // img
 import bg from "../../public/bgn.jpg";
