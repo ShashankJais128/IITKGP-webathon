@@ -15,88 +15,6 @@ function ViewTeam({ showModal, setShowModal }) {
 
   const [show, set] = useState("");
 
-  const [eve, setEve] = useState({
-    title: "",
-    venue: "",
-    description: "",
-    date: "",
-    teamSize: "",
-    image: "",
-    time: "",
-    vacancy: "",
-    categoryName: "",
-  });
-
-  const handleClick = async (e) => {
-    e.preventDefault();
-    const {
-      title,
-      venue,
-      description,
-      date,
-      teamSize,
-      image,
-      time,
-      vacancy,
-      categoryName,
-    } = eve;
-    if (
-      title !== "" &&
-      venue !== "" &&
-      description !== "" &&
-      date !== "" &&
-      teamSize !== "" &&
-      image !== "" &&
-      vacancy !== "" &&
-      time !== "" &&
-      categoryName !== ""
-    ) {
-      var request = {
-        name: title,
-        des: description,
-        image,
-        teamSize,
-        venue,
-        vac: vacancy,
-        postDate: date,
-        postTime: time,
-        categoryName,
-      };
-      const resp = await axios.post("api/competition/add", request, {
-        headers: { Authorization: `${authCtx.token}` },
-      });
-
-      if (resp.data) {
-        set("");
-
-        setEve({
-          title: "",
-          subtitle: "",
-          venue: "",
-          description: "",
-          date: "",
-          teamSize: "",
-          image: "",
-          time: "",
-          vacancy: "",
-          categoryName: "",
-        });
-
-        closeModal();
-      }
-    } else {
-      set("Please fill all the fields");
-    }
-  };
-
-  const onChange = (e) => {
-    setEve({ ...eve, [e.target.name]: e.target.value });
-  };
-
-  const createEve = () => {
-    setShowModal({ show: true });
-  };
-
   const closeModal = () => {
     setEve({
       title: "",
@@ -128,7 +46,7 @@ function ViewTeam({ showModal, setShowModal }) {
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 -b rounded-t">
                   <h3 className="text-3xl text-[#ff673a] font-semibold">
-                    CREATE SQUAD
+                    View Team
                   </h3>
                   <button
                     className="ml-auto text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
