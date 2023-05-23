@@ -6,12 +6,11 @@ import Sidebar from "./Sidebar";
 import EventView from "./EventView";
 import Applicants from "./Applicants";
 import Navbar from "../header/Navbar";
-import CreateEvent from "./CreateEvent";
-import MyEventsList from "./MyEventsList";
-import AppliedSquads from "./AppliedSquads";
 
 // Route Components
 import Details from "./Details";
+import MyEventsList from "./MyEventsList";
+import AppliedSquads from "./AppliedSquads";
 
 // img
 import bg from "../../public/bgn.jpg";
