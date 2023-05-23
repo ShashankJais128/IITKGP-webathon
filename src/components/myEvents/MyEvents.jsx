@@ -1,9 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Components
 import Sidebar from "./Sidebar";
 import Navbar from "../header/Navbar";
+
+// img
+import bg from "../../public/bgn.jpg";
 
 // Route Components
 const Details = React.lazy(() => import("./Details"));
@@ -11,9 +14,6 @@ const EventView = React.lazy(() => import("./EventView"));
 const Applicants = React.lazy(() => import("./Applicants"));
 const MyEventsList = React.lazy(() => import("./MyEventsList"));
 const AppliedSquads = React.lazy(() => import("./AppliedSquads"));
-
-// img
-import bg from "../../public/bgn.jpg";
 
 function MyEvents() {
   return (
