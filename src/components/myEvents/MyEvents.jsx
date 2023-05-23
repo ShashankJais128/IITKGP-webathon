@@ -28,7 +28,14 @@ function MyEvents() {
       <div className="flex">
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Details />} />
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<div> Please Wait... </div>}>
+                <Details />
+              </Suspense>
+            }
+          />
           <Route path="/myeventlist" element={<MyEventsList />} />
           <Route path="/eventview/:id" element={<EventView />} />
           <Route path="/:id/applicants" element={<Applicants />} />
