@@ -36,6 +36,7 @@ function EventView() {
     const resp = await axios.get(`/api/competition/getCompetition/${id}`);
 
     if (resp.data) {
+      console.table(resp.data.participants[0]._id.name);
       setData(resp.data);
       setLoading(false);
     }
