@@ -63,30 +63,36 @@ function MyEventsList() {
         </div>
 
         {/* event list */}
-        <div className=" mt-10 p-10 justify-items-center grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {showData ? (
+        <>
+          {showData.length > 0 ? (
             <>
-              {showData.map((val, key) => {
-                return (
-                  <MyEventCard
-                    title={val.name}
-                    subtitle={val.subtitle}
-                    venue={val.venue}
-                    description={val.description}
-                    date={val.date}
-                    teamSize={val.teamSize}
-                    image={val.image}
-                    vacancy={val.vac}
-                    id={val._id}
-                    key={key}
-                  />
-                );
-              })}
+              <div className=" mt-10 p-10 justify-items-center grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {showData.map((val, key) => {
+                  return (
+                    <MyEventCard
+                      title={val.name}
+                      subtitle={val.subtitle}
+                      venue={val.venue}
+                      description={val.description}
+                      date={val.date}
+                      teamSize={val.teamSize}
+                      image={val.image}
+                      vacancy={val.vac}
+                      id={val._id}
+                      key={key}
+                    />
+                  );
+                })}
+              </div>
             </>
           ) : (
-            ""
+            <div className="bg-[#28282B] flex flex-col items-center md:items-start md:flex-row w-full p-4 mt-[5%] rounded">
+              <p className="text-[#fff] text-4xl text-center w-full my-5">
+                No Events
+              </p>
+            </div>
           )}
-        </div>
+        </>
       </div>
       <CreateEvent showModal={showModal} setShowModal={setShowModal} />
     </>
