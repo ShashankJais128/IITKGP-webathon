@@ -36,7 +36,14 @@ function MyEvents() {
               </Suspense>
             }
           />
-          <Route path="/myeventlist" element={<MyEventsList />} />
+          <Route
+            path="/myeventlist"
+            element={
+              <Suspense fallback={<div> Please Wait... </div>}>
+                <MyEventsList />
+              </Suspense>
+            }
+          />
           <Route path="/eventview/:id" element={<EventView />} />
           <Route path="/:id/applicants" element={<Applicants />} />
           <Route path="/appsquad" element={<AppliedSquads />} />
