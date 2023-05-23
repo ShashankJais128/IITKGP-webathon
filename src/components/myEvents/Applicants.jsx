@@ -77,7 +77,7 @@ function Applicants() {
       userID: param.userID._id,
     };
 
-    const resp = await axios.post(`/api/request/RemoveReq`, dataSend, {
+    const resp = await axios.post(`/api/request/Reject`, dataSend, {
       headers: { Authorization: `${authCtx.token}` },
     });
 
