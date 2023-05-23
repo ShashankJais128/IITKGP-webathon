@@ -5,7 +5,6 @@ import MyEventCard from "./MyEventCard";
 import CreateEvent from "./CreateEvent";
 
 // img
-import eveImg from "../../public/aboutimg.png";
 import sqd from "../../public/create_squad.png";
 
 // axios
