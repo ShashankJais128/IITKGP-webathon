@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 // img
 import eveImg from "../../public/aboutimg.png";
@@ -13,9 +13,13 @@ import axios from "axios";
 function ViewTeam({ showModal, setShowModal, data }) {
   const authCtx = useContext(AuthContext);
 
-  // console.log(data);
-
   const [show, set] = useState("");
+
+  // useEffect(() => {
+  //   for (let i = 0; i < data.length; i++) {
+  //     console.log(data[i]);
+  //   }
+  // }, []);
 
   const closeModal = () => {
     setShowModal({ show: false });
@@ -50,11 +54,18 @@ function ViewTeam({ showModal, setShowModal, data }) {
                 </div>
 
                 {/*body*/}
-                <div>
+                <div className="mb-10">
                   {data ? (
                     <>
                       {data.map((val, key) => {
-                        return <div key={key}></div>;
+                        return (
+                          <div key={key}>
+                            <p className="text-white">
+                              {val._id.name}
+                              <span className="ml-5">{val._id.email}</span>
+                            </p>
+                          </div>
+                        );
                       })}
                     </>
                   ) : (
