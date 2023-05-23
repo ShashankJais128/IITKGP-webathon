@@ -16,17 +16,6 @@ function ViewTeam({ showModal, setShowModal }) {
   const [show, set] = useState("");
 
   const closeModal = () => {
-    setEve({
-      title: "",
-      venue: "",
-      description: "",
-      date: "",
-      teamSize: "",
-      image: "",
-      time: "",
-      vacancy: "",
-      categoryName: "",
-    });
     setShowModal({ show: false });
   };
 
@@ -59,142 +48,7 @@ function ViewTeam({ showModal, setShowModal }) {
                 </div>
 
                 {/*body*/}
-                <div className="grid grid-cols-1 md:grid-cols-2">
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">
-                      Event Title
-                    </h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Event Title"
-                      type="text"
-                      name="title"
-                      value={eve.title}
-                      onChange={onChange}
-                    />
-                  </div>
-
-                  {/* Team Size */}
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">
-                      Team Size
-                    </h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Team Size"
-                      type="number"
-                      name="teamSize"
-                      value={eve.teamSize}
-                      onChange={onChange}
-                    />
-                  </div>
-
-                  {/* vacancy */}
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">Vacancy</h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Team Size"
-                      type="number"
-                      name="vacancy"
-                      value={eve.vacancy}
-                      onChange={onChange}
-                    />
-                  </div>
-
-                  {/* categoryName */}
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">Category</h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Category"
-                      type="text"
-                      name="categoryName"
-                      value={eve.categoryName}
-                      onChange={onChange}
-                    />
-                  </div>
-
-                  {/* Venue */}
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">Venue</h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Venue"
-                      type="text"
-                      name="venue"
-                      value={eve.venue}
-                      onChange={onChange}
-                    />
-                  </div>
-
-                  {/* Date */}
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">Date</h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Date"
-                      type="date"
-                      name="date"
-                      value={eve.date}
-                      onChange={onChange}
-                    />
-                  </div>
-
-                  {/* Time */}
-                  <div className="md:py-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">Time</h2>
-                    <input
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Date"
-                      type="time"
-                      name="time"
-                      value={eve.time}
-                      onChange={onChange}
-                    />
-                  </div>
-
-                  {/* Image */}
-                  <div className="md:py-2 md:col-span-2 px-4">
-                    <h2 className="md:text-xl p-1 my-1 text-white">Image</h2>
-                    <div className="flex space-x-4">
-                      <input
-                        className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                        placeholder="Enter Image Link"
-                        type="text"
-                        name="image"
-                        value={eve.image}
-                        onChange={onChange}
-                      />
-                      <img
-                        className="w-16 h-16 rounded text-white text-sm"
-                        src={eve.image}
-                        alt="image not found"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <div className="md:py-2 px-4 md:col-span-2">
-                    <h2 className="md:text-xl p-1 my-1 text-white">
-                      Description
-                    </h2>
-                    <textarea
-                      className="md:text-lg w-full md:py-0.5 px-1 mx-1 rounded"
-                      placeholder="Enter Description"
-                      name="description"
-                      value={eve.description}
-                      onChange={onChange}
-                      cols="30"
-                      rows="5"
-                    />
-                    {show ? (
-                      <p className="alertText text-red-600">{show}</p>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </div>
+                <div>hello</div>
 
                 {/*footer*/}
                 <div className="flex items-center justify-end px-6 py-2 rounded-b">
@@ -204,13 +58,6 @@ function ViewTeam({ showModal, setShowModal }) {
                     onClick={closeModal}
                   >
                     Close
-                  </button>
-                  <button
-                    className="bg-[#ff673a] text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={handleClick}
-                  >
-                    Save Changes
                   </button>
                 </div>
               </div>
