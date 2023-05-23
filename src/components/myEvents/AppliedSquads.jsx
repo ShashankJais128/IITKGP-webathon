@@ -17,6 +17,7 @@ function AppliedSquads() {
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
+    console.log(showDataMap);
     showData();
   }, []);
 
@@ -39,10 +40,7 @@ function AppliedSquads() {
       <h1 className="text-white text-4xl font-semibold mb-5">Applied Squads</h1>
 
       <div className="flex flex-col w-full space-y-4">
-        <>
-          <p className="text-[#fff] text-4xl text-center mt-[5%]">No Applied</p>
-        </>{" "}
-        {showDataMap ? (
+        {showDataMap.length > 0 ? (
           <>
             {showDataMap.map((data, key) => {
               return (
@@ -87,7 +85,11 @@ function AppliedSquads() {
             })}
           </>
         ) : (
-          <></>
+          <div className="bg-[#28282B] flex flex-col items-center md:items-start md:flex-row w-full p-4 mt-[5%] rounded">
+            <p className="text-[#fff] text-4xl text-center w-full my-5">
+              No Applied
+            </p>
+          </div>
         )}
       </div>
     </div>
