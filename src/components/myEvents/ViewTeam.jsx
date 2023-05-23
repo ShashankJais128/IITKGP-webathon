@@ -10,8 +10,10 @@ import AuthContext from "../../store/auth-context";
 // axois
 import axios from "axios";
 
-function ViewTeam({ showModal, setShowModal }) {
+function ViewTeam({ showModal, setShowModal, data }) {
   const authCtx = useContext(AuthContext);
+
+  // console.log(data);
 
   const [show, set] = useState("");
 
@@ -48,7 +50,17 @@ function ViewTeam({ showModal, setShowModal }) {
                 </div>
 
                 {/*body*/}
-                <div>hello</div>
+                <div>
+                  {data ? (
+                    <>
+                      {data.map((val, key) => {
+                        return <div key={key}></div>;
+                      })}
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </div>
 
                 {/*footer*/}
                 <div className="flex items-center justify-end px-6 py-2 rounded-b">
