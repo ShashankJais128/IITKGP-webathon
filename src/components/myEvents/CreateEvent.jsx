@@ -118,13 +118,13 @@ function CreateEvent({ showModal, setShowModal }) {
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div
-              className="relative bg-cover w-[90%] md:w-[60%] my-6 mx-auto max-w-3xl"
+              className="relative rounded-lg bg-cover w-[90%] md:w-[60%] my-6 mx-auto max-w-3xl"
               style={{
                 backgroundImage: ` url(${bgn})`,
               }}
             >
               {/*content*/}
-              <div className="h-[500px] overflow-auto  rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
+              <div className="h-[500px] overflow-auto rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 -b rounded-t">
                   <h3 className="text-3xl text-[#ff673a] font-semibold">

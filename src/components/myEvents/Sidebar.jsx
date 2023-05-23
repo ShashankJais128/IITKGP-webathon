@@ -25,16 +25,16 @@ function Sidebar() {
           Dashboard
         </h1>
       </div>
-      <div className="bg-[#28282B] opacity-75 min-h-screen ml-6 mt-4 p-2">
+      <div className="bg-[#28282B] opacity-75 min-h-screen ml-2 sm:ml-6 mt-4 p-2">
         <Link to="/myevents/myeventlist">
           <div className="flex bg-gray-700 p-2 rounded-md mb-3">
-            <img src={sq} alt="" className="w-5" />
+            <img src={sq} alt="" className="w-5 h-5" />
             <h1 className="hidden sm:block text-white">&nbsp; My Squads</h1>
           </div>
         </Link>
         <Link to="/myevents/appsquad">
           <div className="flex bg-gray-700 p-2 rounded-md">
-            <img src={ap} alt="" className="w-5" />
+            <img src={ap} alt="" className="w-5 h-5" />
             <h1 className="hidden sm:block text-white">
               &nbsp; Applied Squads
             </h1>

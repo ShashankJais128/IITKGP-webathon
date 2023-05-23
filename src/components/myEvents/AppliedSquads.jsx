@@ -37,7 +37,9 @@ function AppliedSquads() {
   };
   return (
     <div className="w-[75%] mx-[5%] mt-20">
-      <h1 className="text-white text-4xl font-semibold mb-5">Applied Squads</h1>
+      <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-5">
+        Applied Squads
+      </h1>
 
       <div className="flex flex-col w-full space-y-4">
         {showDataMap.length > 0 ? (

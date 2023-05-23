@@ -25,7 +25,7 @@ function ExploreEvents() {
     <>
       <div
         id="explore"
-        className="bg-black bg-cover bg-bottom  pb-16"
+        className="bg-black bg-fixed bg-cover bg-bottom  pb-20"
         style={{
           backgroundImage: `url(${bgex})`,
         }}

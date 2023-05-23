@@ -147,7 +147,7 @@ function EventView() {
                     <div className="flex justify-center">
                       <br />
                       <Link to={`/myevents/${id}/applicants`}>
-                        <button className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1">
+                        <button className="bg-[#ff673a] rounded-md text-white text-2xl font-semibold px-10 py-1">
                           Applicants
                         </button>
                       </Link>
