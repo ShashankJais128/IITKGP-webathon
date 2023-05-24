@@ -9,7 +9,7 @@ import Footer from "./components/footer/Footer";
 import axios from "axios";
 
 // Base
-axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = "https://web-a-thon.onrender.com/";
 
 // Pages
 const Login = React.lazy(() => import("./components/login/Login"));
