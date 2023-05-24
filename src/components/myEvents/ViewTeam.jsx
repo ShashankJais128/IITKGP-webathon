@@ -31,7 +31,7 @@ function ViewTeam({ showModal, setShowModal, data }) {
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div
-              className="relative bg-cover w-[90%] md:w-[60%] my-6 mx-auto max-w-3xl"
+              className="relative rounded-md bg-cover w-[90%] md:w-[60%] my-6 mx-auto max-w-3xl"
               style={{
                 backgroundImage: ` url(${bgn})`,
               }}

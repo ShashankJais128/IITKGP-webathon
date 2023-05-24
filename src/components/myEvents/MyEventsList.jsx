@@ -48,12 +48,15 @@ function MyEventsList() {
     <>
       <div className="w-[75%] mx-[5%] mt-10">
         <div className="flex justify-between">
-          <h1 className="pl-5 text-3xl sm:text-4xl lg:text-6xl text-white font-bold">
+          <h1 className="pl-5 text-3xl sm:text-4xl lg:text-5xl text-white font-bold">
             My Squads
           </h1>
-          <button className="bg-[#28282b] px-2 py-1" onClick={handleClick}>
-            <div className="flex">
-              <img src={sqd} alt="" className="w-4 sm:w-6" />
+          <button
+            className="bg-[#28282b] rounded-sm px-2 py-1"
+            onClick={handleClick}
+          >
+            <div className="flex items-center">
+              <img src={sqd} alt="" className="w-6 h-6" />
               <h1 className="text-white text-lg sm:text-xl font-semibold">
                 &nbsp; Create a Squad
               </h1>

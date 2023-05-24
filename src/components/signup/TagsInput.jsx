@@ -15,7 +15,7 @@ function TagsInput(props) {
   return (
     <div className="mb-5">
       <input
-        className="p-3 rounded-md w-full mb-2"
+        className="p-2 md:p-3 rounded-md w-full mb-2"
         type="text"
         onKeyUp={(event) => (event.key === "Enter" ? addTags(event) : null)}
         placeholder="Press enter to add skills"

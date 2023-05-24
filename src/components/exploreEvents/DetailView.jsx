@@ -73,7 +73,7 @@ function DetailView() {
   return (
     <>
       <div
-        className="bg-black bg-top bg-cover h-[75vh]  "
+        className="bg-black bg-top bg-cover h-[75vh] "
         style={{
           backgroundImage: loading ? ` url(${rect})` : `url(${Event.image})`,
         }}
@@ -81,20 +81,22 @@ function DetailView() {
         <Navbar />
       </div>
       {!loading && (
-        <div className={DVCss.bgImg}>
-          <div className={DVCss.mDiv}>
+        <div className={DVCss.bgImg} style={{ paddingBottom: "80px" }}>
+          <div className={DVCss.mDiv} style={{ borderRadius: "16px" }}>
             <div>
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row space-y-4 pb-4 items-center sm:items-start sm:justify-between">
                 <p className={DVCss.Eventname}>{Event.name}</p>
                 <div className="flex space-x-6">
                   <div className="flex flex-col items-center font-semibold">
-                    <h1 className="text-[#ff673a] text-3xl">
+                    <h1 className="text-[#ff673a] text-2xl sm:text-3xl">
                       {Event.teamSize}
                     </h1>
                     <h2 className="text-white">TEAM SIZE</h2>
                   </div>
                   <div className="flex flex-col items-center font-semibold">
-                    <h1 className="text-[#ff673a] text-3xl">{Event.vac}</h1>
+                    <h1 className="text-[#ff673a] text-2xl sm:text-3xl">
+                      {Event.vac}
+                    </h1>
                     <h2 className="text-white">VACANCY</h2>
                   </div>
                 </div>
@@ -102,15 +104,15 @@ function DetailView() {
               <div className={DVCss.subDel}>
                 <div className="flex flex-col gap-y-5">
                   <div className="flex">
-                    <img src={cal} alt="" className="w-6" />
-                    <h1 className="text-white text-xl">
+                    <img src={cal} alt="" className="w-6 h-6" />
+                    <h1 className="text-white text-lg sm:text-xl">
                       &nbsp; Posted on: <span> {Event.postDate}</span>
                       &nbsp; &nbsp;
                     </h1>
                   </div>
                   <div className="flex pb-4">
-                    <img src={peop} alt="" className="w-6" />
-                    <h1 className="text-white text-xl">
+                    <img src={peop} alt="" className="w-6 h-6" />
+                    <h1 className="text-white text-lg sm:text-xl">
                       &nbsp; Posted by:{" "}
                       <span className="underline">{Event.host.name}</span>
                       &nbsp; &nbsp;
@@ -122,15 +124,17 @@ function DetailView() {
                 </div>
               </div>
             </div>
-            <div className="text-justify text-2xl my-5">{Event.des}</div>
+            <div className="text-justify text-lg sm:text-2xl my-5">
+              {Event.des}
+            </div>
             <div className="flex justify-between">
-              <div className="flex text-xl">
-                <img src={loc} alt="" className="w-6" />
+              <div className="flex text-lg sm:text-xl">
+                <img src={loc} alt="" className="w-6 h-6" />
                 &nbsp;
                 <h1 className="text-white">{Event.venue}</h1>
               </div>
-              <div className="flex text-xl">
-                <img src={time} alt="" className="w-6" />
+              <div className="flex text-lg sm:text-xl">
+                <img src={time} alt="" className="w-6 h-6" />
                 &nbsp;
                 <h1 className="text-white">{Event.postTime}</h1>
               </div>
@@ -138,7 +142,7 @@ function DetailView() {
 
             <div className="flex justify-center items-center my-10">
               <button
-                className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
+                className="bg-[#ff673a] text-white rounded-md text-xl sm:text-2xl font-semibold px-10 py-1"
                 onClick={() => setShowModal(true)}
               >
                 Apply Now
@@ -152,18 +156,18 @@ function DetailView() {
       {showModal ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-[50%] my-6 mx-auto max-w-3xl">
+            <div className="relative w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div
                 className="border-0 p-4 rounded-lg bg-cover shadow-lg relative flex flex-col w-full outline-none focus:outline-none"
                 style={{
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(${bgex})`,
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(${bgex})`,
                 }}
               >
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <div className="flex justify-between w-full">
-                    <h3 className="text-3xl font-semibold text-[#ff673a]">
+                    <h3 className="text-2xl sm:text-3xl font-semibold text-[#ff673a]">
                       {Event.name}
                     </h3>
                     <button type="button" onClick={() => setShowModal(false)}>
@@ -175,7 +179,7 @@ function DetailView() {
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
                   >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-xl sm:text-2xl block outline-none focus:outline-none">
                       ×
                     </span>
                   </button>
@@ -183,14 +187,16 @@ function DetailView() {
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                   <div className="flex">
-                    <img src={cal} alt="" className="w-5" />
+                    <img src={cal} alt="" className="w-5 h-5" />
                     <h1 className="text-white text-lg">
                       &nbsp; Posted on: <span> {Event.postDate}</span>
                       &nbsp; &nbsp;
                     </h1>
                   </div>
                   <br />
-                  <h1 className="text-white text-xl mb-2">Message</h1>
+                  <h1 className="text-white text-lg sm:text-xl mb-2">
+                    Message
+                  </h1>
                   <textarea
                     className="w-full bg-[#28282B] text-white p-2"
                     name=""
@@ -205,7 +211,7 @@ function DetailView() {
                 <div className="flex justify-center items-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
                     onClick={applySquad}
-                    className="bg-[#ff673a] text-white text-2xl font-semibold px-10 py-1"
+                    className="bg-[#ff673a] rounded-md text-white text-xl sm:text-2xl font-semibold px-10 py-1"
                   >
                     Apply
                   </button>

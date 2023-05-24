@@ -170,7 +170,7 @@ function Login() {
       <div className="flex flex-row justify-center px-8">
         <div className="bg-[#28282B] w-[500px] h-[500] p-4 rounded-md">
           <div className="">
-            <p className="font-semibold text-center text-3xl text-white">
+            <p className="font-semibold text-center text-2xl md:text-3xl text-white">
               Login
             </p>
             <br />
@@ -183,7 +183,7 @@ function Login() {
                 type="email"
                 name="Email"
                 id="Email"
-                className="w-[95%] rounded-md p-3"
+                className="w-[95%] rounded-md p-2 md:p-3"
                 placeholder="Ente your email"
                 value={showUser.Email}
                 onChange={DataInp}
@@ -195,7 +195,7 @@ function Login() {
                 type="password"
                 name="Password"
                 id="Password"
-                className="w-[95%] rounded-md p-3"
+                className="w-[95%] rounded-md p-2 md:p-3"
                 placeholder="Enter your password"
                 value={showUser.Password}
                 onChange={DataInp}
@@ -204,7 +204,7 @@ function Login() {
             {show ? <p className="alertText">{show}</p> : ""}
             <button
               type="button"
-              className="w-[95%] mt-5 bg-[#ff673a] text-white rounded-md py-3 font-bold text-xl"
+              className="w-[95%] mt-5 bg-[#ff673a] text-white rounded-md py-2 md:py-3 font-bold text-xl"
               onClick={login}
             >
               Login
